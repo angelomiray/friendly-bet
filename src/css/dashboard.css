@@ -1,0 +1,210 @@
+* {
+    /* border: 1px solid blue; */
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #24242E;
+    padding: 25px;
+    color: white;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#account-options {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Cor da borda direita */
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2); /* Sombra na borda direita */
+    padding-right: 20px;
+}
+
+#account-options .logo {
+    display: flex;
+}
+
+#account-options .logo span {
+    line-height: 75px;        
+    margin-left: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#account-options .logo img {
+    height:70px;
+    width: 70px;
+}
+
+li p {
+    margin-left: 15px;
+    color: grey;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 25px;
+}
+
+#account-options ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#account-options a {
+    text-decoration: none;
+    color: grey;
+}
+
+#account-options li {
+    padding: 0;
+    margin: 0;
+}
+
+#account-options li a span {
+    font-size: 14px;
+    margin-left: 25px;
+    line-height: 22px;
+    margin-right: 40px; 
+}
+
+#account-options li a i {
+    font-size: 20px;
+}
+
+#account-options .option {
+    padding: 20px;
+}
+
+.selected {
+    background-color: #5F1F31;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+li hr {
+    width: 80%;
+    border-color: grey;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.notify-info {
+    color: white; 
+    border: 1px solid #FFD43B;
+    background-color: #FFD43B;
+    padding: 2px 8px;
+    border-radius: 100%;
+}
+
+.notify-info i {
+    font-size: 5px;
+}
+
+.option-text {
+    display: inline-block;
+    width: 90px; 
+}
+
+#dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+#dashboard #intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+#dashboard #right-intro {
+    display: flex;
+    flex-direction: row;
+}
+
+#right-intro .search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 25px;
+    padding: 5px;
+    width: 300px;
+    margin-right: 25px;
+}
+
+#right-intro .search-box i {
+    padding: 15px;
+}
+
+#right-intro .search-box input {
+    flex: 1; /* Ocupa todo o espaço disponível */
+    border: none; /* Remove a borda do input */
+    outline: none; /* Remove o contorno do input */
+    margin-left: 5px; /* Espaçamento à esquerda */
+    background-color: transparent;
+    color: white;
+    font-size: 14px;    
+}
+
+#right-intro .profile-pic img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    /* border: 1px solid grey; */
+}
+
+#dashboard h1 {
+    font-size: 42px;
+}
+
+#dashboard .creation-card {
+    background-color: black;
+    border-radius: 25px;
+    padding: 50px;
+    padding-bottom: 75px;
+    position: relative; /* Adicione position: relative; para que possamos posicionar a imagem */
+}
+
+#dashboard .creation-card:before {
+    content: ''; /* Criamos um pseudo-elemento para inserir a imagem de fundo */
+    position: absolute; /* Posicionamos absolutamente em relação ao elemento pai */
+    top: 0;
+    right: 0;
+    width: 50%; /* Defina a largura da imagem como metade do elemento pai */
+    height: 100%; /* Mantenha a altura igual à altura do elemento pai */
+    background-image: url('/src/img/faceoff.png'); /* Substitua o caminho pela URL da sua imagem */
+    background-size: cover; /* Ajuste a imagem para cobrir todo o espaço disponível */
+    background-position: top right; /* Posicione a imagem à direita no topo */
+    border-top-right-radius: 25px; /* Garanta que a imagem de fundo respeite o raio da borda */
+    border-bottom-right-radius: 25px; /* Garanta que a imagem de fundo respeite o raio da borda */
+}
+
+
+#dashboard .creation-card h2 {
+    font-size: 38px;
+}
+
+#dashboard .creation-card h5 {
+    font-size: 16px;
+    color: grey;
+    margin-bottom: 50px;
+}
+
+#dashboard .creation-card a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#dashboard .creation-btn {
+    padding: 15px 50px;
+    border-radius: 15px;
+    background-color: red;
+    margin-bottom: 50px;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+}
