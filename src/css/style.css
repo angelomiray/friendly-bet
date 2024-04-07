@@ -1,0 +1,125 @@
+nav {
+    color: grey;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;     
+    z-index: 1; /* Para garantir que o conteúdo do menu de navegação fique acima do fundo */
+    line-height: 50px;
+}
+
+
+
+nav .resources ul {
+    list-style-type: none;
+}
+
+nav .resources li {
+    display: inline;    
+    margin: 15px;
+}
+
+nav .login a {
+    color: grey;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.emp-btn {
+    color: white;
+    padding: 10px 25px;
+    border-radius: 10%;
+    background-color: red;
+    border: 1px solid red;
+}
+
+.main-content {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 100px;    
+}
+
+.main-content ul li {
+    display: inline;
+}
+
+.main-content .icon {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;    
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+}
+
+.options-description {
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 50px;
+}
+
+h1, h4 {
+    color: white;
+}
+
+h3, h5 {
+    color: grey;
+}
+
+h3 {
+    margin: 0px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+h1 {
+    margin-top: 25px;
+    margin-bottom: 75px;
+    font-size: 48px;
+}
+
+.card {
+    background-color: #292b2b;    
+    /* mudar margin quando diminuir a tela */
+    margin: 120px; 
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.search-box {
+    width: 80%;
+}
+
+.search-box p {
+    font-size: 22px;
+    text-align: justify;
+    margin: 10px 0px;
+}
+
+input[type="text"] {
+    width: 100%;
+    color: white;
+    height: 25px;
+    background-color: #545657;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 1%;
+    margin-right: 25px;
+}
+
+.card button {
+    font-size: 18px;
+    margin-top: 10px;
+    height: 48px;
+    cursor: pointer;
+}

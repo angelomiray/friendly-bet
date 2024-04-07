@@ -1,0 +1,181 @@
+* {
+    color: white;
+}
+
+#signin-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 35px;
+}
+
+#welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+#welcome h1 {
+    font-size: 72px;
+    margin-bottom: 100px;
+}
+
+#welcome h4 {
+    color: grey;
+    font-weight: normal;
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+button {
+    text-align: center;    
+    padding: 10px 25px;
+    text-decoration: none;
+    width: 20%;
+    background-color: red;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: 18px;
+    border-color:red;
+}
+
+a {
+    text-decoration: none;
+    color: greenyellow;
+}
+
+#signin-card {
+    width: 50%;
+}
+
+#signin-form {
+    /* border: 1px solid red; */
+    border-radius: 5%;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#signin-form h2 {
+    font-weight: normal;
+    padding-bottom: 10px;
+    border-bottom: 2.5px solid greenyellow;
+    display: inline;    
+}
+
+#signin-form h4 {
+    margin-top: 25px;
+    color: grey;
+    font-weight: normal;
+    font-size: 14px;
+    margin-bottom: 75px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 35px; /* Espaço entre os campos */
+}
+
+.input-container input[type="text"], input[type="password"] {
+    width: 95%;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    outline: none; /* Remove o contorno ao clicar */
+}
+
+.input-container input[type="text"]::placeholder {
+    /* color: #646464; Cor do placeholder */
+    /* font-size: 16px; */
+}
+
+.input-container i {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: grey;
+}
+
+.two-items-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+
+/* Esconder o checkbox padrão */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* novo elemento que representará o checkbox */
+input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    background-color: transparent;
+    border-radius: 3px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* estilo quando o checkbox está marcado */
+input[type="checkbox"]:checked + label::before {
+    background-color: greenyellow;
+    border-color: greenyellow;
+}
+
+label {
+    vertical-align: middle;
+    color: grey;
+}
+
+.hr-container {
+    display: flex;
+    align-items: center;
+    margin: 35px 0;
+}
+
+.hr-container hr {
+    flex-grow: 1;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 0 10px;
+}
+
+.hr-text {
+    font-size: 16px;
+    color: #555;
+}
+
+.option-card {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 0px;
+    padding: 25px;
+    border-radius: 5px;
+    width: 40%;
+}
+
+.option-card i {
+    margin-right: 20px; /* Ajuste a margem conforme necessário */
+}
+
+.option-card h3 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+p {
+    text-align: center;
+    margin-top: 35px;
+    color: grey;
+}

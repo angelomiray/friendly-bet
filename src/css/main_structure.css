@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid blue; */
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NCQk0tSW1hZ2UtMjUuanBnP210aW1lPTIwMTkwMjI1MjMyNDIy');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35);
+    background-blend-mode: overlay;
+}
+
+.content {
+    padding: 25px 100px;
+    position: relative;
+}
+
+
+.logo img {
+    height: 80px;
+    width: 80px;
+}
