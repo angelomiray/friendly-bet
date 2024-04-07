@@ -27,7 +27,7 @@
     font-size: 20px;
 }
 
-button {
+.btn {
     text-align: center;    
     padding: 10px 25px;
     text-decoration: none;
@@ -37,6 +37,7 @@ button {
     font-weight: normal;
     font-size: 18px;
     border-color:red;
+    color: white;
 }
 
 a {
@@ -178,4 +179,20 @@ p {
     text-align: center;
     margin-top: 35px;
     color: grey;
+}
+
+.emp-btn, .secondary-btn {
+    border: 1px solid red;
+    padding: 15px 60px;
+    border-radius: 25px;
+    color: white;
+}
+
+.emp-btn {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    background-color: red;
 }
