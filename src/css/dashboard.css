@@ -2,9 +2,9 @@
     /* border: 1px solid blue; */
 }
 
-body {
-    font-family: "Times New Roman", Times, serif;
+body {    
     background-color: #24242E;
+    background-image: url('https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NCQk0tSW1hZ2UtMjUuanBnP210aW1lPTIwMTkwMjI1MjMyNDIy');
     padding: 25px;
     color: white;
 }
@@ -26,6 +26,7 @@ body {
 
 #account-options .logo {
     display: flex;
+    margin-bottom: 25px;
 }
 
 #account-options .logo span {
@@ -106,7 +107,7 @@ li hr {
 
 .option-text {
     display: inline-block;
-    width: 90px; 
+    width: 75px; 
 }
 
 #dashboard {
@@ -119,6 +120,7 @@ li hr {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 25px;
 }
 
 
@@ -142,10 +144,10 @@ li hr {
 }
 
 #right-intro .search-box input {
-    flex: 1; /* Ocupa todo o espaço disponível */
-    border: none; /* Remove a borda do input */
-    outline: none; /* Remove o contorno do input */
-    margin-left: 5px; /* Espaçamento à esquerda */
+    flex: 1;
+    border: none;
+    outline: none; 
+    margin-left: 5px; 
     background-color: transparent;
     color: white;
     font-size: 14px;    
@@ -167,21 +169,21 @@ li hr {
     border-radius: 25px;
     padding: 50px;
     padding-bottom: 75px;
-    position: relative; /* Adicione position: relative; para que possamos posicionar a imagem */
+    position: relative;
 }
 
 #dashboard .creation-card:before {
-    content: ''; /* Criamos um pseudo-elemento para inserir a imagem de fundo */
-    position: absolute; /* Posicionamos absolutamente em relação ao elemento pai */
+    content: ''; 
+    position: absolute; 
     top: 0;
     right: 0;
-    width: 50%; /* Defina a largura da imagem como metade do elemento pai */
-    height: 100%; /* Mantenha a altura igual à altura do elemento pai */
-    background-image: url('/src/img/faceoff.png'); /* Substitua o caminho pela URL da sua imagem */
-    background-size: cover; /* Ajuste a imagem para cobrir todo o espaço disponível */
-    background-position: top right; /* Posicione a imagem à direita no topo */
-    border-top-right-radius: 25px; /* Garanta que a imagem de fundo respeite o raio da borda */
-    border-bottom-right-radius: 25px; /* Garanta que a imagem de fundo respeite o raio da borda */
+    width: 50%; 
+    height: 100%; 
+    background-image: url('/src/img/faceoff.png'); 
+    background-size: cover; 
+    background-position: top right;
+    border-top-right-radius: 25px; 
+    border-bottom-right-radius: 25px;
 }
 
 
@@ -207,4 +209,129 @@ li hr {
     background-color: red;
     margin-bottom: 50px;
     box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#bets-card {
+    /* border: 1px solid blue; */
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+}
+
+#bet-list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 35px;
+}
+
+#bet-list li {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    /* background-color: red; */
+}
+
+#bet-list li img {
+    height: 125px;
+    width: 125px;
+    border-radius: 10px;
+    margin-right: 25px;
+}
+
+.bet-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bet-info span {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.bet-info h4 {
+    color: grey;
+}
+
+.bet-info h3 {
+    display: inline;
+    padding: 5px 20px;
+    text-align: center;
+    width: 50%;
+    border-radius: 25px;
+    color: greenyellow;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.choice-img img {
+    height: 150px;
+    width: 150px;
+}
+
+#bets-card .bet-resume {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    width: 90%;
+}
+
+.bet-resume h4, p {
+    color: grey;
+    margin-top: 5px;
+}
+
+.choice-img h3 {
+    text-align: center;
+}
+
+.sb-line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.bet-resume a {
+    display: inline;
+    text-decoration: none;
+    border: 1px solid red;
+    padding: 15px 35px;
+    border-radius: 15px;
+    margin: auto;
+    color: white;
+    margin-top: 10px;
+}
+
+.room-participants {
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.room-participants ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-participants img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    margin-right: 15px;
+}
+
+.room-participants p {
+    margin-top: 15px;
+    color: grey;
 }
