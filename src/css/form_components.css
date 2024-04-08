@@ -196,3 +196,49 @@ p {
     margin: auto;
     background-color: red;
 }
+
+.upload-container {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.upload-container input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload-container label {
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.team-card {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 0px;
+    padding: 35px;
+    border-radius: 5px;
+    width: 40%;
+}
+
+.team-card img {
+    height: 50px;
+    width: 50px;
+}
+
+.team-card h3 {
+    color: grey;
+    margin-left: 25px;
+}
