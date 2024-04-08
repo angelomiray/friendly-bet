@@ -179,7 +179,7 @@ li hr {
     right: 0;
     width: 50%; 
     height: 100%; 
-    background-image: url('/src/img/faceoff.png'); 
+    background-image: url('../img/faceoff.png'); 
     background-size: cover; 
     background-position: top right;
     border-top-right-radius: 25px; 
