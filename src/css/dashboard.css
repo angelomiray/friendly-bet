@@ -5,7 +5,7 @@
 body {    
     background-color: #24242E;
     background-image: url('https://img.glyphs.co/img?q=85&w=900&src=aHR0cHM6Ly9zMy5tZWRpYWxvb3QuY29tL2Jsb2ctaW1hZ2VzL0NCQk0tSW1hZ2UtMjUuanBnP210aW1lPTIwMTkwMjI1MjMyNDIy');
-    padding: 25px;
+    /* padding: 25px; */
     color: white;
 }
 
@@ -18,10 +18,10 @@ body {
 #account-options {
     display: flex;
     flex-direction: column;
-    width: 15%;
+    /* width: 15%; */
     border-right: 1px solid rgba(255, 255, 255, 0.1); /* Cor da borda direita */
     box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2); /* Sombra na borda direita */
-    padding-right: 20px;
+    /* padding-right: 20px; */
 }
 
 #account-options .logo {
@@ -113,44 +113,19 @@ li hr {
 #dashboard {
     display: flex;
     flex-direction: column;
-    width: 70%;
 }
 
 #dashboard #intro {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 25px; */
 }
 
 
 #dashboard #right-intro {
     display: flex;
     flex-direction: row;
-}
-
-#right-intro .search-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid grey;
-    border-radius: 25px;
-    padding: 5px;
-    width: 300px;
-    margin-right: 25px;
-}
-
-#right-intro .search-box i {
-    padding: 15px;
-}
-
-#right-intro .search-box input {
-    flex: 1;
-    border: none;
-    outline: none; 
-    margin-left: 5px; 
-    background-color: transparent;
-    color: white;
-    font-size: 14px;    
 }
 
 #right-intro .profile-pic img {
@@ -165,25 +140,19 @@ li hr {
 }
 
 #dashboard .creation-card {
-    background-color: black;
-    border-radius: 25px;
+    /* background-color: black; */
+    /* border-radius: 25px;
     padding: 50px;
     padding-bottom: 75px;
-    position: relative;
+    position: relative; */
 }
 
-#dashboard .creation-card:before {
-    content: ''; 
-    position: absolute; 
-    top: 0;
-    right: 0;
-    width: 50%; 
-    height: 100%; 
-    background-image: url('../img/faceoff.png'); 
-    background-size: cover; 
-    background-position: top right;
-    border-top-right-radius: 25px; 
-    border-bottom-right-radius: 25px;
+.creation-card img {    
+    /* top: 0;
+    right: 0; */
+    /* width: 100%;      */
+    /* border-top-right-radius: 25px; 
+    border-bottom-right-radius: 25px; */
 }
 
 
@@ -194,7 +163,7 @@ li hr {
 #dashboard .creation-card h5 {
     font-size: 16px;
     color: grey;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 #dashboard .creation-card a {
@@ -220,10 +189,10 @@ li hr {
 }
 
 #bet-list {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin-right: 35px;
+    /* display: flex;
+    flex-direction: column; */
+    /* width: 50%; */
+    /* margin-right: 35px; */
 }
 
 #bet-list li {
@@ -249,20 +218,20 @@ li hr {
 }
 
 .bet-info span {
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
 }
 
 .bet-info h4 {
-    color: grey;
+    color:  grey;
+    font-size: 16px;
 }
 
 .bet-info h3 {
     display: inline;
     padding: 5px 20px;
     text-align: center;
-    width: 50%;
     border-radius: 25px;
     color: greenyellow;
     background-color: rgba(255, 255, 255, 0.1);
@@ -278,19 +247,24 @@ li hr {
 #bets-card .bet-resume {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    /* padding: 15px; */
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 15px;
-    width: 90%;
+    border-radius: 15px;    
+}
+
+.bet-resume h2 {
+    color: white;
 }
 
 .bet-resume h4, p {
     color: grey;
-    margin-top: 5px;
+    /* margin-top: 5px; */
+    font-size: 20px;
 }
 
 .choice-img h3 {
     text-align: center;
+    color: white;
 }
 
 .sb-line {
@@ -317,11 +291,11 @@ li hr {
 }
 
 .room-participants ul {
-    list-style-type: none;
+    /* list-style-type: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .room-participants img {
@@ -334,4 +308,28 @@ li hr {
 .room-participants p {
     margin-top: 15px;
     color: grey;
+}
+
+
+@media (min-width: 576px) {
+    .bg-img {
+        background-image: url('../img/faceoff.png');
+        background-size: auto 140%;
+        background-repeat: no-repeat;
+        background-position: top right;        
+    }
+
+    .btn {
+        width: 40%;
+    }
+}
+
+@media (max-width: 576px) {
+    .bg-img {
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .btn {
+        width: 100%;
+    }
 }

@@ -1,180 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/form_components.css">
-    <link rel="stylesheet" href="../css/main_structure.css">
-    <script src="https://kit.fontawesome.com/2241ec2548.js" crossorigin="anonymous"></script>
-    <title>Room Creation</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <link rel="stylesheet" href="../css/main_structure.css">
+        <link rel="stylesheet" href="../css/form_components.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+        <script src="https://kit.fontawesome.com/2241ec2548.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+        <title>Room Creation</title>
+    </head>
 <body>
     <div class="background-container">
         <div class="background-image"></div>
     </div>
-    <div class="content">
-        <div id="container">
-            <div id="account-options">
-                <div class="logo">                
-                    <img src="../img/logo.png" alt="Logo">
-                    <span>RIVALRY</span>
-                </div>
-                <ul>                
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Overview</span>
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option selected">
-                                <i class="fa-solid fa-dice-six"></i>
-                                <span>Rooms</span>
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fa-solid fa-money-bill"></i>
-                                <span>Bets</span>
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fa-solid fa-tag"></i>
-                                <span>Products</span>
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fa-solid fa-credit-card"></i>
-                                <span>Payments</span>
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fa-solid fa-gear"></i>
-                                <span>Settings</span>
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span>Sign out</span>
-                            </div>
-                        </a>
-                    </li>
+    <div class="content container-fluid">
+        <div id="container" class="row">
+            <div id="account-options" class="col-xl-2 col-0">
+                <nav class="navbar navbar-expand-xl navbar-light">                    
+
+                    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     
-                    <li>
-                        <hr>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fa-solid fa-message"></i>
-                                <span class="option-text">Messages</span>
-                                <!--     -->
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fa-solid fa-bell"></i>
-                                <span class="option-text">Notifications</span>
-                                <i style="font-size: 14px;" class="fa-solid fa-3 notify-info"></i>
-                            </div>
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="#">
-                            <div class="option">
-                                <i class="fa-brands fa-rocketchat"></i>
-                                <span class="option-text">Comments</span>
-                                <!-- <i class="fa-solid fa-3 notify-info"></i> -->
-                            </div>
-                        </a>
-                    </li>
-    
-                </ul>
-                
+                      
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                                <div class="logo navbar-brand">                
+                                    <img src="../img/logo.png" alt="Logo">
+                                    <span class="text-light">RIVALRY</span>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Overview</span>
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option selected">
+                                        <i class="fa-solid fa-dice-six"></i>
+                                        <span>Rooms</span>
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-money-bill"></i>
+                                        <span>Bets</span>
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-tag"></i>
+                                        <span>Products</span>
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-credit-card"></i>
+                                        <span>Payments</span>
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-gear"></i>
+                                        <span>Settings</span>
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    <div class="option">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Sign out</span>
+                                    </div>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <hr>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-message"></i>
+                                        <span class="option-text">Messages</span>
+                                        <!--     -->
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-bell"></i>
+                                        <span class="option-text">Notifications</span>
+                                        <i style="font-size: 14px;" class="fa-solid fa-3 notify-info"></i>
+                                    </div>
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-brands fa-rocketchat"></i>
+                                        <span class="option-text">Comments</span>
+                                        <!-- <i class="fa-solid fa-3 notify-info"></i> -->
+                                    </div>
+                                </a>
+                            </li>
+            
+                        </ul>
+                    </div>
+        
+                </nav>            
             </div>
     
-            <div id="dashboard">
-                <div id="intro">
-                    <h1>Create new Room </h1>
-                    <div id="right-intro">
-                        <!-- <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Search">                        
-                        </div>                     -->
-                        <h3 style="line-height: 50px;">Hi Ângelo, &nbsp; &nbsp;</h3>                                        
+            <div id="dashboard" class="col-xl-9 col-lg-12 col-12">
+                <div id="intro" class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-5 mb-3">
+                    <div id="right-intro" class="order-md-2 d-none d-md-flex">
+                        <h3 style="line-height: 50px; color: white;">Hi Ângelo, &nbsp; &nbsp;</h3>                                        
                         <div class="profile-pic">
                             <img src="https://avatars.githubusercontent.com/u/81655988?v=4" alt="Profile picture">
                         </div>
-                    </div>                
-                </div>            
+                    </div>  
+                    <h1 class="text-light">Create a new Room!</h1>                                  
+                </div>                
 
-                <br><br>
-
-                <div id="signin-card" style="margin: auto; width: 100%;">                    
-                    <div id="signin-form">
-                        <h2>
+                <div id="signin-card" class="m-auto col-12">                    
+                    <div id="signin-form" class="p-5">
+                        <h2 class="">
                             Room Creation Form &nbsp;&nbsp;&nbsp;
                         </h2>           
-                        <br>             
-                        <h4>
+                                
+                        <h4 class="mt-3 mb-4">
                             Enter the information of the room you will create. This information will appear for friends you invite.<br>                            
                             After the creation, we will provide a code for this room.
                             
                         </h4>
-                        
-
-                        <div class="hr-container">
-                            <!-- <hr> -->
-                            <span class="hr-text" style="font-weight: bold; font-size: 18px;"> Event Information </span>
-                            <!-- <hr> -->
+                    
+                        <div class="hr-container">                            
+                            <span class="hr-text" style="font-weight: bold; font-size: 22px;"> Event Information </span>
+                            
                         </div>
 
-                        <div class="sb-line">
-                            <div class="input-container" style="width: 45%";>
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <div class="input-container col-lg-6 col-12">
                                 <i class="fas fa-heading"></i>
                                 <input type="text" placeholder="Title">
                             </div>
 
-                            <div class="input-container" style="width: 45%;">
+                            <div class="input-container col-lg-6 col-12">
                                 <i class="fas fa-heading"></i>
                                 <input type="text" placeholder="Subtitle">
                             </div>
                         </div>                        
 
-                        <div class="input-container">
+                        <div class="input-container col-12">
                             <i class="fas fa-align-left"></i>
                             <input type="text" placeholder="Description">
-                        </div>                        
+                        </div>
+                        
+                        <div class="input-container col-12">
+                            <i class="fas fa-image"></i>   
+                            <input type="text" placeholder="Event picture">
+                        </div>
                         
                         <!-- <div class="upload-container">
                             <input type="file" id="file-upload" name="file-upload" accept="image/*">
@@ -182,32 +194,26 @@
                         </div>                               -->
                         
                         
-                        <div class="hr-container">
-                            <!-- <hr> -->
-                            <span class="hr-text" style="font-weight: bold; font-size: 18px;"> Event Teams </span>
-                            <!-- <hr> -->
+                        <div class="hr-container d-flex justify-content-between">
+                            <span class="hr-text" style="font-weight: bold; font-size: 22px;"> Event Teams </span>
+
+                            <i class="fa-solid fa-plus" style="font-size: 18px; border: 1px solid greenyellow; padding: 20px; border-radius: 50px; background-color: greenyellow;" ></i>                                               
                         </div>
                         
-                        <div class="two-items-line">
-                            <div class="team-card">
+                        <div class="d-flex justify-content-between flex-wrap mb-3">
+                            <div class="team-card col-lg-5 col-12 mb-3">
                                 <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/16.png" alt="">                                
                                 <h3> River Plate </h3>
                             </div>
 
-                            <div class="team-card">
+                            <div class="team-card col-lg-5 col-12 mb-3">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Escudo_actual_bolso.png" alt="">                                
                                 <h3> Nacional </h3>
                             </div>
-                        </div> 
-
-
-                        <i class="fa-solid fa-plus" style="float: right; font-size: 18px; border: 1px solid greenyellow; padding: 20px; border-radius: 50px; background-color: greenyellow;" ></i>                   
-                        <br style="clear: both;"><br>
-
-
-                        <a class="emp-btn" style="width: 25%;" href="bets_dashboard.html"> Create Room </a>                        
+                        </div>                         
+                        <a class="emp-btn btn-danger mt-3 col-lg-5 col-sm-12" href="bets_dashboard.html"> Create Room </a>                        
                     </div>
-                    <p>Looking for some room? <a href="signup.html">Join with link</a></p>
+                    <p class="mt-3">Looking for some room? <a href="signup.html">Join with link</a></p>
                 </div>                
             </div>
             </div>
