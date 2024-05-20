@@ -18,6 +18,7 @@
             <div class="background-image"></div>
         </div>
         <div class="content p-lg-4 p-sm-0">
+            <div id="alert-container"></div>
             <nav class="text-center text-lg-left">
                 <div class="logo mb-3">
                     <img src="../img/logo.png" alt="Logotipo">                    
@@ -39,24 +40,24 @@
                 </div>
 
                 <div id="signin-card" class="col-lg-6 col-md-12 col-12">                    
-                    <div id="signin-form" class="p-5">
+                    <form id="signin-form" class="p-5">
                         <h2>
                             Sign in &nbsp;&nbsp;&nbsp;
                         </h2>           
-                        <br>             
-                        <h4>
+                                   
+                        <h4 class="mt-2 mb-5">
                             Enter your email address below and we will create your user account.<br>
                             You can sign in using your unique Web Address, which looks like this:
                         </h4>
                         
                         <div class="input-container">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="text" placeholder="Jack@gmail.com">
+                            <input type="text" placeholder="Jack@gmail.com" id="email" name="email">
                         </div>
 
                         <div class="input-container">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" placeholder="Password">
+                            <input type="password" placeholder="Password" id="pw" name="pw">
                         </div>                        
 
                         <div class="row d-flex justify-content-between px-3">
@@ -65,7 +66,7 @@
                                 <label for="keep-signed-in">Keep me signed in</label>                        
                             </div>                                                    
                                 
-                            <a class='btn btn-danger py-3 col-lg-4 col-12' href="../html/bets_dashboard.html"> Sign in </a>                                                            
+                            <button type="submit" class='btn btn-danger py-3 col-lg-4 col-12'> Sign in </button>   
                         </div> 
                         
                         <div class="hr-container">
@@ -86,12 +87,14 @@
                             </div>
                         </div>                       
 
-                        <p> Forgot password? </p>                        
+                        <a class="link d-flex justify-content-center"> Forgot password? </a> 
 
-                    </div>
-                    <p class="m-3">Don't have an account? It's simple to <a href="../html/signup.html" class="greenyellow">Register now</a></p>
+                    </form>
+                    <p class="m-3">Don't have an account? It's simple to <a href="../html/signup.html" style="color: greenyellow">Register now</a></p>
                 </div>                
             </div>
-        </div>        
+        </div>       
+        <script src="../js/users.js"></script>
+        <script src="../js/utils.js"></script> 
 </body>
 </html>

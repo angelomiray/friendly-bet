@@ -1,0 +1,68 @@
+* {
+    /* border: 1px solid red; */
+}
+
+.bet-resume {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.dropdown-menu li:hover {
+    cursor: pointer;
+}
+
+#betList .card {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-link i {
+    font-size: 24px;
+    color: gold;
+}
+
+#betList img {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;    
+}
+
+.choice-img img {
+    object-fit: cover;
+}
+
+/* MODAL */
+
+.form-check-label {
+    font-size: 24px;
+}
+
+.custom-modal-content,
+.modal-body,
+.custom-modal-header,
+.custom-modal-footer {
+    background-color: #232323;
+    color: #ffffff;    
+}
+
+.custom-close {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* MEMBERS */
+
+.member-img {
+    border-radius: 50%;    
+}
+
+.member h5 {
+    color: grey;
+}
+
+
+/* INPUT */
+
+form select, form select option {
+    background-color: rgba(255, 255, 255, 0.1); 
+    font-size: 18px;   
+}

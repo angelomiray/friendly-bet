@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/main_structure.css">
+    <link rel="stylesheet" href="../css/room_details.css">
+    <link rel="stylesheet" href="../css/rooms.css">
+    <link rel="stylesheet" href="../css/form_components.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <script src="https://kit.fontawesome.com/2241ec2548.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Room Details</title>
+</head>
+
+<body>
+    <div class="background-container">
+        <div class="background-image"></div>
+    </div>
+    <div class="content container-fluid">
+        <div id="container" class="row">
+            <div id="account-options" class="col-xl-2 col-0">
+                <nav class="navbar navbar-expand-xl navbar-light">
+
+                    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                                <div class="logo navbar-brand">
+                                    <img src="../img/logo.png" alt="Logo">
+                                    <span class="text-light">RIVALRY</span>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="bets_dashboard.html">
+                                    <div class="option">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Overview</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option selected">
+                                        <i class="fa-solid fa-dice-six"></i>
+                                        <span>Rooms</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-money-bill"></i>
+                                        <span>Bets</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-tag"></i>
+                                        <span>Products</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-credit-card"></i>
+                                        <span>Payments</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-gear"></i>
+                                        <span>Settings</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">
+                                    <div class="option">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Sign out</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <hr>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-message"></i>
+                                        <span class="option-text">Messages</span>
+                                        <!--     -->
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-solid fa-bell"></i>
+                                        <span class="option-text">Notifications</span>
+                                        <i style="font-size: 14px;" class="fa-solid fa-3 notify-info"></i>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <div class="option">
+                                        <i class="fa-brands fa-rocketchat"></i>
+                                        <span class="option-text">Comments</span>
+                                        <!-- <i class="fa-solid fa-3 notify-info"></i> -->
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div id="dashboard" class="col-xl-9 col-lg-12 col-12">
+                <div id="intro"
+                    class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-5 mb-5">
+                    <div id="right-intro" class="order-md-2 d-none d-md-flex">
+                        <!-- <h3 style="line-height: 50px; color: white;">Hi Ângelo, &nbsp; &nbsp;</h3>                                         -->
+                        <div class="profile-pic">
+                            <img src="https://avatars.githubusercontent.com/u/81655988?v=4" alt="Profile picture">
+                        </div>
+                    </div>
+                    <h1 class="text-light"> Room Details </h1>
+                </div>
+
+                <div id="content" class="m-auto col-12">
+
+                    <div class="bet-resume col-12 p-3 mx-auto mb-5">
+                        <div class="d-flex justify-content-between">
+                            <h2>Alex Pereira vs Jamahal Hill</h2>
+
+                            <div class="dropdown">
+                                <button type="button" class="btn dropdown-toggle dropdown-toggle-no-arrow"
+                                    style="background-color: transparent; font-size: 22px;" data-toggle="dropdown">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a data-toggle="modal" href="#membersModal">
+                                        <li class="dropdown-item" href="#">Show participants</li>
+                                    </a>
+                                    <a data-toggle="modal" href="#">
+                                        <li class="dropdown-item">Copy room code</li>
+                                    </a>
+                                    <a data-toggle="modal" href="#newBetModal">
+                                        <li class="dropdown-item">Create a new bet</li>
+                                    </a>
+                                    <a data-toggle="modal" href="#">
+                                        <li class="dropdown-item">Close room</li>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>UFC 300 - Sáb., 13 De Abr., 23:00 </h4>
+                        <div class="sb-line d-flex flex-wrap">
+                            <div class="choice-img">
+                                <img src="https://a.espncdn.com/combiner/i?img=/i/headshots/mma/players/full/4705658.png&w=350&h=254"
+                                    alt="" style="object-fit: cover;"><br>
+                                <h3>Alex Pereira</h3>
+                            </div>
+                            <h3>vs</h3>
+                            <div class="choice-img">
+                                <img src="https://a.espncdn.com/combiner/i?img=/i/headshots/mma/players/full/4425355.png&w=350&h=254"
+                                    alt=""><br>
+                                <h3>Jamahal Hill</h3>
+                            </div>
+                        </div>
+
+                        <p style="text-align: center;">Peso meio-pesado - Luta Principal</p>
+
+                    </div>
+                    <div id="betList">
+                        <div class="card mb-2">
+                            <div
+                                class="card-header d-flex justify-content-between align-items-center flex-wrap p-0 p-lg-4">
+                                <div class="d-flex align-items-center mb-lg-0 mb-4 col-lg-5 col-sm-12">
+                                    <img class="img-fluid"
+                                        src="https://voxnews.com.br/wp-content/uploads/2019/01/ufc-logo-750x394.jpg"
+                                        alt="Room picture">
+                                    <div class="ml-3">
+                                        <h4>Fight winner</h4>
+                                        <h5 style="color: grey;">Created May 15</h5>
+                                    </div>
+                                </div>
+
+                                <!-- STRAIGHT BET, MULTIPLE BET OR SYSTEM BET -->
+                                <div class="bet-info col-lg-7 col-sm-12 d-flex flex-row">
+                                    <h5 class="col-lg-3">Straight Bet</h5>
+                                    <h5 class="col-lg-3" style="color: greenyellow"> OPEN </h5>
+                                    <a class="card-link col-lg-1" data-toggle="modal" href="#betModal">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="modal fade" id="betModal" tabindex="-1" role="dialog"
+                            aria-labelledby="betModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content custom-modal-content">
+                                    <div class="modal-header custom-modal-header">
+                                        <h5 class="modal-title" id="betModalLabel">Place Your Bet</h5>
+                                        <button type="button" class="close custom-close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body col-12">
+                                        <form class="col-12">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" value="Alex Pereira"
+                                                    id="alexPereira">
+                                                <label class="form-check-label text-light" for="alexPereira">
+                                                    Alex Pereira
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="Jamahal Hill"
+                                                    id="jamahalHill">
+                                                <label class="form-check-label text-light" for="jamahalHill">
+                                                    Jamahal Hill
+                                                </label>
+                                            </div>
+                                            <div class="form-row align-items-center mt-3 col-12">
+                                                <div class="col-lg-9 col-sm-12">
+                                                    <input type="text" class="form-control mb-2" id="amount"
+                                                        placeholder="Amount">
+                                                </div>
+                                                <div class="col-lg-3 col-sm-12">
+                                                    <button type="submit"
+                                                        class="btn btn-success mb-2 col-12">Bet</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="membersModal" tabindex="-1" role="dialog"
+                            aria-labelledby="membersModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content custom-modal-content">
+                                    <div class="modal-header custom-modal-header">
+                                        <h5 class="modal-title" id="membersModalLabel">Members List</h5>
+                                        <button type="button" class="close custom-close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body col-12 d-flex flex-column">
+                                        <div class="member d-flex col-12 align-items-center mb-3">
+                                            <div class="member-img col-lg-2 p-3"
+                                                style="background-color: rgb(255, 93, 44);">
+                                                <h4 class="m-auto text-center">FJ</h4>
+                                            </div>
+                                            <div class="member-info ml-3 col-8">
+                                                <h4>Flap Jack</h4>
+                                                <h5> <i class="fas fa-crown mr-2"></i> Owner</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="member d-flex col-12 align-items-center mb-3">
+                                            <div class="member-img col-lg-2 p-3"
+                                                style="background-color: rgb(20, 15, 120);">
+                                                <h4 class="m-auto text-center">CC</h4>
+                                            </div>
+                                            <div class="member-info ml-3 col-8">
+                                                <h4>Cora Coraline</h4>
+                                                <h5> <i class="fas fa-user mr-2"></i> Member</h5>
+                                            </div>
+                                        </div>
+
+                                        <div class="member d-flex col-12 align-items-center mb-3">
+                                            <div class="member-img col-lg-2 p-3"
+                                                style="background-color: rgb(44, 220, 120);">
+                                                <h4 class="m-auto text-center">BY</h4>
+                                            </div>
+                                            <div class="member-info ml-3 col-8">
+                                                <h4>Billy</h4>
+                                                <h5> <i class="fas fa-user mr-2"></i> Member</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="newBetModal" tabindex="-1" role="dialog"
+                            aria-labelledby="newBetModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content custom-modal-content">
+                                    <div class="modal-header custom-modal-header">
+                                        <h5 class="modal-title" id="newBetModalLabel">New Bet Form</h5>
+                                        <button type="button" class="close custom-close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body col-12 d-flex flex-column">
+                                        <form>
+                                            <div class="input-container col-12">
+                                                <i class="fas fa-heading"></i>
+                                                <input type="text" class="form-control" placeholder="Bet Title">
+                                            </div>
+                                            <div class="input-container col-12">
+                                                <select class="form-control bg-dark text-light" id="betType" onchange="showInputs()">
+                                                    <option value="">Select Bet Type</option>
+                                                    <option value="straight">Straight Bet</option>
+                                                    <option value="multiple">Multiple Bet</option>
+                                                    <option value="system">System Bet</option>
+                                                </select>
+                                            </div>
+                                            <div id="inputFields" class="col-12"></div>
+
+                                            <button class="d-flex btn btn-danger m-auto justify-content-center py-3 col-lg-5 col-sm-12"> Create </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function showInputs() {
+            const betType = document.getElementById('betType').value;
+            const inputFields = document.getElementById('inputFields');
+            inputFields.innerHTML = ''; // Clear previous inputs
+
+            let numberOfInputs = 0;
+            if (betType === 'straight') {
+                numberOfInputs = 2;
+            } else if (betType === 'multiple' || betType === 'system') {
+                numberOfInputs = 5;
+            }
+
+            for (let i = 0; i < numberOfInputs; i++) {
+                const div = document.createElement('div');
+                div.className = 'input-container col-12';
+                div.innerHTML = `<i class="fas fa-edit"></i><input type="text" class="form-control text-light" placeholder="Option ${i + 1}">`;
+                inputFields.appendChild(div);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

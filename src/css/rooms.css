@@ -1,0 +1,26 @@
+.dropdown-toggle.dropdown-toggle-no-arrow::after {
+    display: none;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+@media (min-width: 992px) {
+    .card img {
+        height: 175px;
+    }
+}
+
+@media (max-width: 992px) {
+    .card img {
+        height: 250px;
+    }
+}

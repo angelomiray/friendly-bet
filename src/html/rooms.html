@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/dashboard.css">
-        <link rel="stylesheet" href="../css/main_structure.css">
-        <link rel="stylesheet" href="../css/form_components.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    
-        <script src="https://kit.fontawesome.com/2241ec2548.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-        <title>Room Creation</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/main_structure.css">
+    <link rel="stylesheet" href="../css/rooms.css">
+    <link rel="stylesheet" href="../css/form_components.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <script src="https://kit.fontawesome.com/2241ec2548.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Room Creation</title>
+</head>
+
 <body>
     <div class="background-container">
         <div class="background-image"></div>
@@ -20,30 +25,32 @@
     <div class="content container-fluid">
         <div id="container" class="row">
             <div id="account-options" class="col-xl-2 col-0">
-                <nav class="navbar navbar-expand-xl navbar-light">                    
+                <nav class="navbar navbar-expand-xl navbar-light">
 
-                    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    
-                      
+
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item">
-                                <div class="logo navbar-brand">                
+                                <div class="logo navbar-brand">
                                     <img src="../img/logo.png" alt="Logo">
                                     <span class="text-light">RIVALRY</span>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="bets_dashboard.html">
                                     <div class="option">
                                         <i class="fas fa-chart-line"></i>
                                         <span>Overview</span>
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option selected">
@@ -52,7 +59,7 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option">
@@ -61,7 +68,7 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option">
@@ -70,7 +77,7 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option">
@@ -79,7 +86,7 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option">
@@ -88,7 +95,7 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="index.html">
                                     <div class="option">
@@ -97,11 +104,11 @@
                                     </div>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <hr>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option">
@@ -111,7 +118,7 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option">
@@ -121,7 +128,7 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <div class="option">
@@ -131,94 +138,79 @@
                                     </div>
                                 </a>
                             </li>
-            
+
                         </ul>
                     </div>
-        
-                </nav>            
+
+                </nav>
             </div>
-    
+
             <div id="dashboard" class="col-xl-9 col-lg-12 col-12">
-                <div id="intro" class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-5 mb-3">
+                <div id="intro"
+                    class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-5 mb-5">
                     <div id="right-intro" class="order-md-2 d-none d-md-flex">
-                        <h3 style="line-height: 50px; color: white;">Hi Ângelo, &nbsp; &nbsp;</h3>                                        
+                        <!-- <h3 style="line-height: 50px; color: white;">Hi Ângelo, &nbsp; &nbsp;</h3>                                         -->
                         <div class="profile-pic">
                             <img src="https://avatars.githubusercontent.com/u/81655988?v=4" alt="Profile picture">
                         </div>
-                    </div>  
-                    <h1 class="text-light">Create a new Room!</h1>                                  
-                </div>                
+                    </div>
+                    <h1 class="text-light">Your Rooms</h1>
+                </div>
 
-                <div id="signin-card" class="m-auto col-12">                    
-                    <div id="signin-form" class="p-5">
-                        <h2 class="">
-                            Room Creation Form &nbsp;&nbsp;&nbsp;
-                        </h2>           
-                                
-                        <h4 class="mt-3 mb-4">
-                            Enter the information of the room you will create. This information will appear for friends you invite.<br>                            
-                            After the creation, we will provide a code for this room.
-                            
-                        </h4>
-                    
-                        <div class="hr-container">                            
-                            <span class="hr-text" style="font-weight: bold; font-size: 22px;"> Event Information </span>
-                            
+                <div id="content" class="m-auto col-12">
+                    <div class="search d-flex justify-content-between">
+                        <div class="input-container col-lg-10 col-11">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Type the room name here">
+                        </div>
+                        <div class="dropdown col-lg-2">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-no-arrow"
+                                style="background-color: rgba(255, 255, 255, 0.2);" data-toggle="dropdown">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Sort by Date</a>
+                                <a class="dropdown-item" href="#">Sort by Title</a>
+                                <a class="dropdown-item" href="#">Join with a Code</a>
+                                <a class="dropdown-item" href="room_creation.html">Create a new Room</a>
+                            </div>
                         </div>
 
-                        <div class="d-flex justify-content-between flex-wrap">
-                            <div class="input-container col-lg-6 col-12">
-                                <i class="fas fa-heading"></i>
-                                <input type="text" placeholder="Title">
-                            </div>
+                    </div>
 
-                            <div class="input-container col-lg-6 col-12">
-                                <i class="fas fa-heading"></i>
-                                <input type="text" placeholder="Subtitle">
+                    <div id="roomsList" class="d-flex col-12 flex-wrap">
+                        <div class="card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2" style="background-color: rgba(255, 255, 255, 0.2);">
+                            <img class="card-img-top mb-0 p-3 img-fluid" src="https://voxnews.com.br/wp-content/uploads/2019/01/ufc-logo-750x394.jpg" alt="Card image">
+                            <div class="card-body">
+                                <h3 class="text-truncate">Alex Pereira vs Jamahal Hill</h3>
+                                <h4 class="text-truncate" style="color: wheat;">UFC 300</h4>
+                                <div style="color: grey;">
+                                    <i class="far fa-calendar-alt mr-2" style="color: grey;"></i> May 15
+                                </div>
                             </div>
                         </div>                        
 
-                        <div class="input-container col-12">
-                            <i class="fas fa-align-left"></i>
-                            <input type="text" placeholder="Description">
-                        </div>
-                        
-                        <div class="input-container col-12">
-                            <i class="fas fa-image"></i>   
-                            <input type="text" placeholder="Event picture">
-                        </div>
-                        
-                        <!-- <div class="upload-container">
-                            <input type="file" id="file-upload" name="file-upload" accept="image/*">
-                            <label for="file-upload">Select Picture</label>
-                        </div>                               -->
-                        
-                        
-                        <div class="hr-container d-flex justify-content-between">
-                            <span class="hr-text" style="font-weight: bold; font-size: 22px;"> Event Teams </span>
 
-                            <i class="fa-solid fa-plus" style="font-size: 18px; border: 1px solid greenyellow; padding: 20px; border-radius: 50px; background-color: greenyellow;" ></i>                                            
+                        <div class="card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2"
+                            style="background-color: rgba(255, 255, 255, 0.2);">
+                            <img class="card-img-top mb-0 p-3 img-fluid"
+                                src="https://static.poder360.com.br/2021/10/conmebol-libertadores-848x477.jpg"
+                                alt="Card image">
+                            <div class="card-body">
+                                <h3 class="text-truncate"> River Plate vs Nacional </h3>
+                                <h4 class="text-truncate" style="color: wheat;"> Libertadores </h4>
+                                <div style="color: grey">
+                                    <i class="far fa-calendar-alt mr-2" style="color: grey;"></i> July 15
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="d-flex justify-content-between flex-wrap mb-3">
-                            <div class="team-card col-lg-5 col-12 mb-3">
-                                <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/16.png" alt="">                                
-                                <h3> River Plate </h3>
-                            </div>
-
-                            <div class="team-card col-lg-5 col-12 mb-3">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Escudo_actual_bolso.png" alt="">                                
-                                <h3> Nacional </h3>
-                            </div>
-                        </div>                         
-                        <a class="emp-btn btn-danger mt-3 col-lg-5 col-sm-12" href="bets_dashboard.html"> Create Room </a>                        
                     </div>
-                    <p class="mt-3">Looking for some room? <a href="signup.html">Join with link</a></p>
-                </div>                
-            </div>
+                </div>
             </div>
         </div>
     </div>
-    
+    </div>
+
 </body>
+
 </html>
