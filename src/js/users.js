@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.addEventListener('submit', login);
     }
 
-    const loginComponent = document.getElementById('login');    
+    const loginComponent = document.getElementById('login');
 
     if (loginComponent && currentUser.id !== 'None') {
-        
+
         loginComponent.innerHTML = '';
         loginComponent.className = 'ml-auto d-flex flex-column align-items-center'
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const dashboardLink = document.createElement('a');
         dashboardLink.href = 'bets_dashboard.html';
-        dashboardLink.textContent = 'Go to your Bets Dashboard';        
+        dashboardLink.textContent = 'Go to your Bets Dashboard';
 
         // Adiciona os elementos ao loginComponent
         loginComponent.appendChild(userInfo);
@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* USER CREATION - SIGN UP */
-
 
 async function submitUser(event) {
     event.preventDefault();
@@ -111,7 +110,7 @@ async function submitUser(event) {
         // Adiciona a chave ao objeto userData
         userData.id = key;
         // Atualiza o usuário com a chave como parte dos dados
-        await updateUser(key, userData);
+        await fastUpdate(key, userData);
 
         createUserForm.reset();
         showAlert('success', 'Perfil criado com sucesso!');
@@ -144,7 +143,7 @@ async function saveUser(userData) {
 }
 
 // Função para atualizar o usuário com a chave gerada
-async function updateUser(key, userData) {
+async function fastUpdate(key, userData) {
     try {
         const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/users/${key}.json`, {
             method: 'PUT',
@@ -275,5 +274,86 @@ async function verifyCredentials() {
         console.error('Erro ao fazer login:', error);
         showAlert('danger', 'Houve um problema ao fazer login.');
         return false;
+    }
+}
+
+
+/* USER UPDATE - SETTINGS */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const editForm = document.getElementById('editForm');
+
+    if (editForm) {
+        const infos = document.querySelectorAll('.info button');
+        const editModal = $('#editModal');
+        const fieldValue = document.getElementById('fieldValue');
+        const saveChangesBtn = document.getElementById('saveChanges');
+        let currentField;
+
+        infos.forEach(button => {
+            button.addEventListener('click', function () {
+                const infoDiv = this.closest('.info');
+                currentField = infoDiv.getAttribute('data-field');
+                const value = infoDiv.querySelector('h4').textContent;
+
+                // Set modal field values
+                fieldValue.value = value;
+                editModal.attr('data-field', currentField);
+
+                // Show modal
+                editModal.modal('show');
+            });
+        });
+
+        editForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const newValue = fieldValue.value;
+            const infoDiv = document.querySelector(`.info[data-field="${currentField}"] h4`);
+
+            // Update the field in the UI
+            infoDiv.textContent = newValue;
+
+            // Update the field in currentUser
+            currentUser[currentField] = newValue;
+
+            // Hide the modal
+            editModal.modal('hide');
+        });
+
+        saveChangesBtn.addEventListener('click', async function () {
+            try {
+                await updateUserInFirebase(currentUser.id, currentUser);
+                alert('Changes saved successfully!');
+            } catch (error) {
+                console.error('Error updating user:', error);
+                alert('Failed to save changes.');
+            }
+        });
+    }
+
+});
+
+async function updateUserInFirebase(userId, userData) {
+    try {
+        const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/users/${userId}.json`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const responseData = await response.json();
+        return responseData;
+
+    } catch (error) {
+        console.error('Error updating user:', error);
+        throw error;
     }
 }

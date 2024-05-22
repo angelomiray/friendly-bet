@@ -26,124 +26,7 @@
     <div class="content container-fluid">
         <div id="container" class="row">
             <div id="account-options" class="col-xl-2 col-0">
-                <nav class="navbar navbar-expand-xl navbar-light">
 
-                    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-item">
-                                <div class="logo navbar-brand">
-                                    <img src="../img/logo.png" alt="Logo">
-                                    <span class="text-light">RIVALRY</span>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="bets_dashboard.html">
-                                    <div class="option">
-                                        <i class="fas fa-chart-line"></i>
-                                        <span>Overview</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option selected">
-                                        <i class="fa-solid fa-dice-six"></i>
-                                        <span>Rooms</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option">
-                                        <i class="fa-solid fa-money-bill"></i>
-                                        <span>Bets</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option">
-                                        <i class="fa-solid fa-tag"></i>
-                                        <span>Products</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option">
-                                        <i class="fa-solid fa-credit-card"></i>
-                                        <span>Payments</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option">
-                                        <i class="fa-solid fa-gear"></i>
-                                        <span>Settings</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">
-                                    <div class="option">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                        <span>Sign out</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <hr>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option">
-                                        <i class="fa-solid fa-message"></i>
-                                        <span class="option-text">Messages</span>
-                                        <!--     -->
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option">
-                                        <i class="fa-solid fa-bell"></i>
-                                        <span class="option-text">Notifications</span>
-                                        <i style="font-size: 14px;" class="fa-solid fa-3 notify-info"></i>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <div class="option">
-                                        <i class="fa-brands fa-rocketchat"></i>
-                                        <span class="option-text">Comments</span>
-                                        <!-- <i class="fa-solid fa-3 notify-info"></i> -->
-                                    </div>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                </nav>
             </div>
 
             <div id="dashboard" class="col-xl-9 col-lg-12 col-12">
@@ -340,7 +223,8 @@
                                                 <input type="text" class="form-control" placeholder="Bet Title">
                                             </div>
                                             <div class="input-container col-12">
-                                                <select class="form-control bg-dark text-light" id="betType" onchange="showInputs()">
+                                                <select class="form-control bg-dark text-light" id="betType"
+                                                    onchange="showInputs()">
                                                     <option value="">Select Bet Type</option>
                                                     <option value="straight">Straight Bet</option>
                                                     <option value="multiple">Multiple Bet</option>
@@ -349,7 +233,9 @@
                                             </div>
                                             <div id="inputFields" class="col-12"></div>
 
-                                            <button class="d-flex btn btn-danger m-auto justify-content-center py-3 col-lg-5 col-sm-12"> Create </button>
+                                            <button
+                                                class="d-flex btn btn-danger m-auto justify-content-center py-3 col-lg-5 col-sm-12">
+                                                Create </button>
                                         </form>
                                     </div>
                                 </div>
@@ -384,7 +270,7 @@
             }
         }
     </script>
-
+    <script src="../js/components.js"></script>
 </body>
 
 </html>

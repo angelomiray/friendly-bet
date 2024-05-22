@@ -27,7 +27,7 @@
 }
 
 .btn {
-    text-align: center;    
+    text-align: center;
     padding: 10px 25px;
     text-decoration: none;
     width: 20%;
@@ -35,7 +35,7 @@
     border-radius: 5px;
     font-weight: normal;
     font-size: 18px;
-    border-color:red;
+    border-color: red;
     color: white;
 }
 
@@ -48,7 +48,8 @@ a {
     /* width: 50%; */
 }
 
-#signin-form, #signup-form {
+#signin-form,
+#signup-form {
     /* border: 1px solid red; */
     border-radius: 5%;
     /* padding: 50px; */
@@ -56,16 +57,18 @@ a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#signin-form h2, #signup-form h2 {
-    font-weight: normal;    
+#signin-form h2,
+#signup-form h2 {
+    font-weight: normal;
     border-bottom: 2.5px solid greenyellow !important;
-    display: inline;    
+    display: inline;
 }
 
-#signin-form h4, #signup-form h4 {    
+#signin-form h4,
+#signup-form h4 {
     color: grey;
     font-weight: normal;
-    font-size: 16px;    
+    font-size: 16px;
 }
 
 .input-container {
@@ -73,14 +76,16 @@ a {
     margin-bottom: 35px;
 }
 
-.input-container input[type="text"], input[type="password"] {
+.input-container input[type="text"],
+input[type="password"] {
     width: 100%;
     padding-left: 30px;
     padding-bottom: 15px;
     border: none;
     border-bottom: 2px solid #ccc;
     background-color: transparent;
-    outline: none; /* Remove o contorno ao clicar */
+    outline: none;
+    /* Remove o contorno ao clicar */
 }
 
 .input-container input[type="text"]::placeholder {
@@ -111,7 +116,7 @@ input[type="checkbox"] {
 }
 
 /* novo elemento que representará o checkbox */
-input[type="checkbox"] + label::before {
+input[type="checkbox"]+label::before {
     content: "";
     display: inline-block;
     width: 20px;
@@ -124,7 +129,7 @@ input[type="checkbox"] + label::before {
 }
 
 /* estilo quando o checkbox está marcado */
-input[type="checkbox"]:checked + label::before {
+input[type="checkbox"]:checked+label::before {
     background-color: greenyellow;
     border-color: greenyellow;
 }
@@ -159,11 +164,12 @@ label {
     height: 0px;
     padding: 25px;
     border-radius: 5px;
-    margin-top: 10px;    
+    margin-top: 10px;
 }
 
 .option-card i {
-    margin-right: 20px; /* Ajuste a margem conforme necessário */
+    margin-right: 20px;
+    /* Ajuste a margem conforme necessário */
 }
 
 .option-card h3 {
@@ -177,7 +183,8 @@ p {
     color: grey;
 }
 
-.emp-btn, .secondary-btn {
+.emp-btn,
+.secondary-btn {
     border: 1px solid red;
     padding: 15px 60px;
     border-radius: 25px;
@@ -237,4 +244,72 @@ p {
 .team-card h3 {
     color: grey;
     margin-left: 25px;
+}
+
+
+
+/* UPDATE INFO SCREEN */
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.1);
+    align-items: center;
+    padding: 25px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+
+.info:hover {
+    background: rgba(37, 37, 37, 0.5);
+}
+
+#signin-form .info h4 {
+    font-size: 22px;
+}
+
+.info button,
+.overlay button {
+    background-color: transparent;
+    border: none;
+}
+
+.info button i {
+    font-size: 22px;
+    margin-left: 25px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.image-container:hover .overlay {
+    display: flex;
+}
+
+.overlay i {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
 }
