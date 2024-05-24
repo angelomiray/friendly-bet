@@ -128,7 +128,7 @@ li hr {
     flex-direction: row;
 }
 
-#right-intro .profile-pic img {
+#right-intro #profile-pic img {
     height: 50px;
     width: 50px;
     border-radius: 50%;

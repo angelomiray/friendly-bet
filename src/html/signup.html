@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,13 @@
     <script src="https://kit.fontawesome.com/2241ec2548.js" crossorigin="anonymous"></script>
     <title>Sign Up</title>
 </head>
-<body>    
+
+<body>
 
     <div class="background-container">
         <div class="background-image"></div>
     </div>
-    <div class="content  p-lg-4 p-sm-0">
+    <div class="content p-lg-4 p-sm-0">
         <div id="alert-container"></div>
 
         <nav class="text-center text-lg-left">
@@ -24,37 +26,45 @@
                 <img src="../img/logo.png" alt="Logotipo">
             </div>
         </nav>
-        <div id="signin-content" class="p-2">                
+        <div id="signin-content" class="p-2">
             <div id="welcome" class="col-lg-5 d-none d-md-flex">
                 <h2>
                     JOIN FOR FREE
                 </h2>
 
                 <h1>
-                    Embark on your journey of <span class="text-danger">cordial rivalry</span> and brotherhood 
+                    Embark on your journey of <span class="text-danger">cordial rivalry</span> and brotherhood
                 </h1>
-                
+
                 <h5 class="text-secondary">
-                    Developed by Ângelo Miranda and sponsored by <span class="text-danger">Instituto Metrópole Digital/UFRN</span>
+                    Developed by Ângelo Miranda and sponsored by <span class="text-danger">Instituto Metrópole
+                        Digital/UFRN</span>
                 </h5>
             </div>
 
-            <div id="signin-card" class="col-lg-6 col-12">                    
+            <div id="signin-card" class="col-lg-6 col-12">
                 <form id="signup-form" class="p-5">
-                    <h2 class="mb-5">
-                        Create new Account &nbsp;&nbsp;&nbsp;
-                    </h2>           
-                              
-                    <h4 class="mt-2 mb-5">
-                        Provide your account information and we will create your user account.<br>
-                        Be sure to double-check the information for accuracy and its validity.
-                    </h4>                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <div>
+                            <h2 class="mb-5">
+                                Create new Account &nbsp;&nbsp;&nbsp;
+                            </h2>
+
+                            <h4 class="mt-2">
+                                Provide your account information and we will create your user account.<br>
+                                Be sure to double-check the information for accuracy and its validity.
+                            </h4>
+                        </div>
+
+                        <img class="ml-4" id="profile-picture-preview" src="" alt="Profile picture"
+                            style="height: 150px; width: auto; display: none;">
+                    </div>
 
                     <div class="input-container">
                         <i class="fa-solid fa-user"></i>
                         <input type="text" placeholder="Username" id="username" name="username" required>
                     </div>
-                    
+
                     <div class="row d-flex justify-content-between">
                         <div class="input-container col-lg-5 col-sm-12">
                             <i class="fa-solid fa-id-badge"></i>
@@ -66,7 +76,6 @@
                             <input type="text" placeholder="Surname" id="surname" name="surname" required>
                         </div>
                     </div>
-                    
 
                     <div class="input-container">
                         <i class="fa-solid fa-envelope"></i>
@@ -77,23 +86,51 @@
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" placeholder="Password" id="pw" name="pw" required>
                     </div>
-                    
+
                     <div class="input-container">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Confirm Password" id="confirm-pw" name="confirm-pw" required>
+                        <input type="password" placeholder="Confirm Password" id="confirm-pw" name="confirm-pw"
+                            required>
                     </div>
-                                    
 
-                    <button type="submit" class='btn btn-danger d-block mx-auto px-5 py-3 col-lg-6 col-md-12 col-12 mb-4'> Create Account </button>
+                    <div class="input-container">
+                        <i class="fa-solid fa-image"></i>
+                        <input type="text" placeholder="Profile picture URL" id="imgUrl" name="imgUrl" required>
+                    </div>
+
+                    <button type="submit"
+                        class="btn btn-danger d-block mx-auto px-5 py-3 col-lg-6 col-md-12 col-12 mb-4">
+                        Create Account
+                    </button>
 
                     <p>Already have an account? <a style="color: greenyellow;" href="signin.html">Sign in now</a></p>
-
-                </form>                
-            </div>                
+                </form>
+            </div>
         </div>
-    </div>   
-    
+    </div>
+
+    <script>
+        // Selecionar o campo de URL da imagem de perfil e a imagem de pré-visualização
+        const imgUrlInput = document.getElementById('imgUrl');
+        const profilePicturePreview = document.getElementById('profile-picture-preview');
+
+        // Adicionar um evento 'input' ao campo de URL da imagem de perfil
+        imgUrlInput.addEventListener('input', () => {
+            const imgUrl = imgUrlInput.value;
+            profilePicturePreview.src = imgUrl;
+
+            if (imgUrl == '') {
+                profilePicturePreview.style.display = 'none';
+            } else {
+                profilePicturePreview.style.display = 'inline';
+            }
+
+        });
+    </script>
+
     <script src="../js/users.js"></script>
     <script src="../js/utils.js"></script>
+
 </body>
+
 </html>

@@ -1,13 +1,16 @@
+// SCRIPTS DE CRUD DE USUÁRIO
+
 class User {
-    constructor({ id, username, fname, surname, email, pw }) {
+    constructor({ id, username, fname, surname, email, pw, imgUrl }) {
         this.id = id;
-        this.username = username;
+        this.username = username;   
         this.fname = fname;
         this.surname = surname;
         this.email = email;
         this.pw = pw;
-        this.rooms = []; // lista de id's de salas que o usuário está
-        this.bets = []; //lista de id's de apostas que o usuário fez
+        this.imgUrl = imgUrl;
+        this.rooms = [];
+        this.bets = []; 
     }
 
     addRoom(room) {
@@ -26,6 +29,7 @@ let currentUser = new User({
     surname: 'None',
     username: 'None',
     email: 'None',
+    imgUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
     pw: 'None',
 });
 
@@ -103,6 +107,7 @@ async function submitUser(event) {
         surname: formData.get('surname'),
         email: formData.get('email'),
         pw: await sha256(formData.get('pw')),
+        imgUrl: formData.get('imgUrl')
     });
 
     try {
@@ -245,6 +250,8 @@ async function login(event) {
     currentUser.surname = result.surname;
     currentUser.email = result.email;
     currentUser.pw = result.pw;
+    currentUser.imgUrl = result.imgUrl;
+
 
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
@@ -305,37 +312,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 editModal.modal('show');
             });
         });
-
-        editForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const newValue = fieldValue.value;
-            const infoDiv = document.querySelector(`.info[data-field="${currentField}"] h4`);
-
-            // Update the field in the UI
-            infoDiv.textContent = newValue;
-
-            // Update the field in currentUser
-            currentUser[currentField] = newValue;
-
-            // Hide the modal
-            editModal.modal('hide');
-        });
-
-        saveChangesBtn.addEventListener('click', async function () {
-            try {
-                await updateUserInFirebase(currentUser.id, currentUser);
-                alert('Changes saved successfully!');
-            } catch (error) {
-                console.error('Error updating user:', error);
-                alert('Failed to save changes.');
-            }
-        });
     }
 
 });
 
 async function updateUserInFirebase(userId, userData) {
+    console.log('here');
     try {
         const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/users/${userId}.json`, {
             method: 'PATCH',

@@ -20,30 +20,27 @@
         <div class="background-image"></div>
     </div>
     <div class="content container-fluid">
+        <div id="alert-container"></div>
         <div id="container" class="row">
             <div id="account-options" class="col-xl-2 col-0">
-
+                <!-- Account options here -->
             </div>
 
             <div id="dashboard" class="col-xl-9 col-lg-12 col-12">
                 <div id="intro"
                     class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-5 mb-3">
                     <div id="right-intro" class="order-md-2 d-none d-md-flex">
-                        <h3 style="line-height: 50px; color: white;">Hi Ângelo, &nbsp; &nbsp;</h3>
-                        <div class="profile-pic">
-                            <img src="https://avatars.githubusercontent.com/u/81655988?v=4" alt="Profile picture">
+                        <div id="profile-pic">
+                            <!-- <img src="" alt="Profile picture"> -->
                         </div>
                     </div>
                     <h1 class="text-light">Your Settings</h1>
                 </div>
 
-
-
                 <div id="signin-form" class="d-flex p-3 mx-auto flex-wrap">
                     <div class="col-lg-4 col-sm-12 p-5">
                         <div class="image-container">
-                            <img src="https://lh3.googleusercontent.com/proxy/AUBCMGEPmXz1KnxmnOoNuMT6Cj--eX7QLpQlqMJTC5sq8nmsoBk7aYNtmpWofB_5Vp1dqHONGYmzkwnHxUuDOOgPnnzHSoVPEgPn8hd-tRnzC_9cynAYSkkLlzhP5mfpc5_o-GrbBNkAk3KintXB"
-                                alt="Profile picture">
+                            <img src="" alt="Profile picture">
                             <div class="overlay">
                                 <button>
                                     <i class="fas fa-edit text-info"></i>
@@ -58,7 +55,7 @@
                                 <h3>Username</h3>
                                 <h4>griffith</h4>
                             </div>
-                            <button>
+                            <button data-toggle="modal" data-target="#editModal" data-field="username">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
@@ -68,7 +65,7 @@
                                 <h3>First Name</h3>
                                 <h4>Griffith</h4>
                             </div>
-                            <button>
+                            <button data-toggle="modal" data-target="#editModal" data-field="fname">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
@@ -78,7 +75,7 @@
                                 <h3>Last Name</h3>
                                 <h4>Hawk</h4>
                             </div>
-                            <button>
+                            <button data-toggle="modal" data-target="#editModal" data-field="surname">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
@@ -88,7 +85,7 @@
                                 <h3>Email</h3>
                                 <h4>griffith@email.com</h4>
                             </div>
-                            <button>
+                            <button data-toggle="modal" data-target="#editModal" data-field="email">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
@@ -105,13 +102,11 @@
                         </div>
 
                         <button id="saveChanges" class="btn btn-info ml-auto mt-4 py-4 text-center"
-                            style="font-size: 18px;">Save
-                            changes</button>
+                            style="font-size: 18px;">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <footer class="text-light py-4 col-12 mt-5">
@@ -121,12 +116,13 @@
             <div class="social ml-auto text-info">
                 <i class="fa-brands fa-github"></i>
                 <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-google"></i>                
+                <i class="fa-brands fa-google"></i>
                 <i class="fa-brands fa-facebook"></i>
                 <i class="fa-brands fa-youtube"></i>
             </div>
             <h5 class="text-secondary mt-4">
-                Developed by Ângelo Miranda and sponsored by <span class="text-danger">Instituto Metrópole Digital/UFRN</span>
+                Developed by Ângelo Miranda and sponsored by <span class="text-danger">Instituto Metrópole
+                    Digital/UFRN</span>
             </h5>
         </div>
     </footer>
@@ -155,6 +151,9 @@
     </div>
 
     <script src="../js/components.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/utils.js"></script>
     <script src="../js/users.js"></script>
 </body>
 

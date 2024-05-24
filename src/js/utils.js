@@ -1,4 +1,5 @@
 function showAlert(type, message) {
+    console.log('aqui');
     const alertContainer = document.getElementById('alert-container');
     const alert = document.createElement('div');
     alert.className = `alert alert-${type} text-center`;
