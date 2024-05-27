@@ -5,15 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     if (currentUser) {
-        // Atualize os campos da página com os dados do usuário
         document.querySelector('.image-container img').src = currentUser.imgUrl;
         document.querySelector('.info[data-field="username"] h4').innerText = currentUser.username;
         document.querySelector('.info[data-field="fname"] h4').innerText = currentUser.fname;
         document.querySelector('.info[data-field="surname"] h4').innerText = currentUser.surname;
         document.querySelector('.info[data-field="email"] h4').innerText = currentUser.email;
     }
-
-    // Adiciona evento de clique aos botões com data-toggle="modal"
+    
     document.querySelectorAll('[data-toggle="modal"]').forEach(button => {
         button.addEventListener('click', () => {
             const field = button.getAttribute('data-field');

@@ -19,7 +19,7 @@
     <div class="content container-fluid">
         <div id="container" class="row">
             <div id="account-options" class="col-xl-2 col-0">
-         
+                <!-- Account options go here -->
             </div>
     
             <div id="dashboard" class="col-xl-9 col-lg-12 col-12">
@@ -27,7 +27,7 @@
                     <div id="right-intro" class="order-md-2 d-none d-md-flex">
                         <h3 id="user-name" style="line-height: 50px; color: white;"></h3>                                        
                         <div id="profile-pic">
-                            
+                            <!-- Profile pic goes here -->
                         </div>
                     </div>  
                     <h1 class="text-light">Overview</h1>                                  
@@ -49,81 +49,33 @@
                 <div id="bets-card" class="row d-flex flex-sm-row flex-column">
                     <div id="bet-list" class="col-lg-4 col-sm-12">
                         <ul class="list-unstyled d-flex flex-lg-column flex-md-row nowrap" style="overflow-x: auto;">
-                            <li class="selected mb-3 mr-sm-3">
-                                <img src="https://s3.static.brasilescola.uol.com.br/be/2022/03/taca-da-libertadores.jpg" alt="">
-                                <div class="bet-info">
-                                    <span> River Plate  vs Nacional </span>
-                                    <h4>Fase de grupos - Rodada 2 de 6</h4>
-                                    <h3 style="color: white; background-color: red;"> Live </h3>
-                                </div>
-                            </li>
-                    
-                            <li class="mb-3 mr-sm-3 d-md-flex">
-                                <img src="https://yt3.googleusercontent.com/BHfbCbg4x6VgO5sEDv0E5odG2ML9NOYxuDN8r91FhI1j0HFu2ulIus3j2D4M-7fdQvwBrgXX=s900-c-k-c0x00ffffff-no-rj" alt="">
-                                <div class="bet-info">
-                                    <span> Alex Pereira vs Jamahal Hill </span>
-                                    <h4> UFC 300 </h4>
-                                    <h3> 13/04, 23:00  </h3>
-                                </div>
-                            </li>
-                    
-                            <li class="mb-3 mr-sm-3 d-md-flex">
-                                <img src="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2023/02/18/919177108-brasileirao-a.jpg" alt="">
-                                <div class="bet-info">
-                                    <span> Vasco da Gama vs Grêmio </span>
-                                    <h4> Brasileirão Série A</h4>
-                                    <h3> 14/04, 16:00  </h3>
-                                </div>
-                            </li>
+                            <!-- Bet items will be appended here dynamically -->
                         </ul>
                     </div>
-                    
     
                     <div class="bet-resume col-lg-8 col-sm-12 p-3">
-                        <h2>River Plate vs Nacional</h2>
-                        <h4>Copa Libertadores - Qui., 11/04, 21:00</h4>
+                        <h2 id="room-title">Room Title</h2>
+                        <h4 id="room-subtitle">Room Subtitle</h4>
                         <div class="sb-line d-flex flex-wrap">
-                            <div class="choice-img">
-                                <img src="https://logodownload.org/wp-content/uploads/2015/05/river-plate-logo-0-1.png" alt=""><br>                
-                                <h3>River Plate</h3>
+                            <div class="choice-img" id="team1">
+                                <!-- Team 1 image and name will be inserted here -->
                             </div>
                             <h3>vs</h3>
-                            <div class="choice-img">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Escudo_actual_bolso.png" alt=""><br>                
-                                <h3>Nacional</h3>
+                            <div class="choice-img" id="team2">
+                                <!-- Team 2 image and name will be inserted here -->
                             </div>
                         </div>
                         
-                        <p style="text-align: center;">Fase de Grupos - Grupo H - Rodada 2 de 6</p>
+                        <p id="room-description" style="text-align: center;">Room Description</p>
 
                         <div class="room-participants d-flex flex-column mb-4">
-                            <ul class="list-unstyled d-flex flex-row justify-content-center">
-                                <li>
-                                    <img src="https://pm1.aminoapps.com/6331/fb10124472f11526861211f20a39b7ca3b27ad44_hq.jpg" alt="">
-                                </li>
-
-                                <li>
-                                    <img src="https://pm1.aminoapps.com/6331/9102d357e07eaca9cb73c4a876b4beeed6963486_hq.jpg" alt="">
-                                </li>                                                                
-
-                                <li>
-                                    <img src="https://pm1.aminoapps.com/6331/6a55a61fdc6dece2d949e03b38aab7c59f61ae89_00.jpg" alt="">
-                                </li>
-
-                                <li class="d-none d-lg-inline">
-                                    <img src="https://pm1.aminoapps.com/6331/1388f10de19313513180258e59a1097ab78dc144_hq.jpg" alt="">
-                                </li>                                                                
-                                
-                                <li class="d-none d-lg-inline">
-                                    <img src="https://pm1.aminoapps.com/6331/14c240fd148366c1da58cf79d86d1a2d6fd0ca07_hq.jpg" alt="">
-                                </li>
-
+                            <ul id="participant-list" class="list-unstyled d-flex flex-row justify-content-center">
+                                <!-- Participants will be appended here dynamically -->
                             </ul>
-                            <p class="m-auto">Jack, Billy, Mandy and more are in this room...</p>
+                            <p id="participants-info" class="m-auto">Participant info</p>
                         </div>
                         
-                        <a class="m-auto p-3 border rounded border-danger text-light" href="room_details.html"> Join Room </a>
-
+                        <a id="join-room-link" class="m-auto p-3 border rounded border-danger text-light">See Room</a>
                     </div>
                 </div>
             </div>
@@ -131,5 +83,7 @@
     </div>
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="../js/users.js"></script>
+    <script src="../js/rooms.js"></script>
 </body>
 </html>

@@ -215,6 +215,7 @@ li hr {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .bet-info span {
@@ -229,9 +230,9 @@ li hr {
 }
 
 .bet-info h3 {
-    display: inline;
+    display: inline;    
     padding: 5px 20px;
-    text-align: center;
+    text-align: left;
     border-radius: 25px;
     color: greenyellow;
     background-color: rgba(255, 255, 255, 0.1);
@@ -239,9 +240,19 @@ li hr {
     font-weight: normal;
 }
 
+.bet-info span,
+.bet-info h4 {
+    width: 100%;
+    text-align: left; /* Garante que o texto dentro dos elementos esteja alinhado à esquerda */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden; /* Esconde qualquer texto que exceda a largura do elemento */
+    text-overflow: ellipsis; /* Adiciona reticências (...) ao texto que excede a largura do elemento */
+}
+
 .choice-img img {
     height: 150px;
     width: 150px;
+    object-fit: cover;
 }
 
 #bets-card .bet-resume {

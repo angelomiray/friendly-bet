@@ -1,6 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Existing event listeners...
 
+class Room {
+    constructor({ title, subtitle, description, imgUrl, team1, team2, link, ownerId }) {
+        this.title = title;
+        this.subtitle = subtitle;
+        this.description = description;
+        this.imgUrl = imgUrl;
+        this.team1 = team1;
+        this.team2 = team2;
+        this.link = link;
+        this.ownerId = ownerId;
+        this.participants = [];
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
     const createRoomButton = document.querySelector('button[type="submit"]');
     if (createRoomButton) {
         createRoomButton.addEventListener('click', submitRoom);
@@ -35,7 +49,7 @@ async function submitRoom(event) {
         team1: teams[0],
         team2: teams[1],
         link: "", // sha256. no caso, será o proprio id/key
-        ownerId: "", // currentuser
+        ownerId: JSON.parse(localStorage.getItem('currentUser')).id,
     });
 
     try {
@@ -89,16 +103,61 @@ async function fastUpdateRoom(key, roomData) {
     }
 }
 
-class Room {
-    constructor({title, subtitle, description, imgUrl, team1, team2, link, ownerId}) {
-        this.title = title;
-        this.subtitle = subtitle;
-        this.description = description;
-        this.imgUrl = imgUrl;
-        this.team1 = team1;
-        this.team2 = team2;
-        this.link = link;
-        this.ownerId = ownerId;
-        this.participants = [];
+// ROOMS.HTML
+
+async function getRooms() {
+    try {
+        const response = await fetch('https://cordial-rivalry-default-rtdb.firebaseio.com/rooms.json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const roomsData = await response.json();
+        return roomsData;
+    } catch (error) {
+        console.error('Error fetching rooms:', error);
+        throw error;
     }
 }
+
+function renderRoom(roomData, roomId) {
+    const roomCard = `
+        <div class="card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2" style="background-color: rgba(255, 255, 255, 0.1);">
+            <img class="card-img-top mb-0 p-3 img-fluid" src="${roomData.imgUrl}" alt="Card image">
+            <div class="card-body">
+                <h3 class="text-truncate">${roomData.title}</h3>
+                <h4 class="text-truncate" style="color: wheat;">${roomData.subtitle}</h4>
+                <div style="color: grey;">
+                    <i class="far fa-calendar-alt mr-2" style="color: grey;"></i> ${'May 15'}
+                </div>
+            </div>
+        </div>
+    `;
+    document.getElementById('roomsList').insertAdjacentHTML('beforeend', roomCard);
+}
+
+async function loadRooms() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser || !currentUser.id) {
+        console.error('No current user found in localStorage');
+        return;
+    }
+
+    const roomsData = await getRooms();
+
+    for (const [roomId, roomData] of Object.entries(roomsData)) {
+        if (roomData.ownerId === currentUser.id || (roomData.participants && roomData.participants.includes(currentUser.id))) {
+            renderRoom(roomData, roomId);
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('roomsList') ? loadRooms() : '';    
+});
