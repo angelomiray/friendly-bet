@@ -13,6 +13,9 @@
     text-overflow: ellipsis;
 }
 
+.room-card {
+    cursor: pointer;
+}
 
 @media (min-width: 992px) {
     .card img {

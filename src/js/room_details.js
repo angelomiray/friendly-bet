@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const roomId = getRoomIdFromUrl();
-    
+
     if (roomId) {
         getRooms().then(roomsData => {
             const roomData = roomsData[roomId];
+            localStorage.setItem('roomData', JSON.stringify(roomData));
             if (roomData) {
                 renderSpecificRoomDetails(roomData);
             } else {
@@ -15,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('No selected room ID found in local storage.');
     }
+
+    const copyRoomCodeLink = document.getElementById('copyRoomCodeLink');
+
+    copyRoomCodeLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        const roomId = getRoomIdFromUrl();
+        if (roomId) {
+            navigator.clipboard.writeText(roomId);
+            showAlert('info', 'Room code copied to clipboard!');
+        } else {
+            showAlert('danger', 'Room code not found.');
+        }
+    });
 });
 
 function renderSpecificRoomDetails(roomData) {
@@ -32,4 +46,25 @@ function getRoomIdFromUrl() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     return urlParams.get('roomId');
+}
+
+
+function showInputs() {
+    const betType = document.getElementById('betType').value;
+    const inputFields = document.getElementById('inputFields');
+    inputFields.innerHTML = ''; // Clear previous inputs
+
+    let numberOfInputs = 0;
+    if (betType === 'straight') {
+        numberOfInputs = 2;
+    } else if (betType === 'multiple' || betType === 'system') {
+        numberOfInputs = 5;
+    }
+
+    for (let i = 0; i < numberOfInputs; i++) {
+        const div = document.createElement('div');
+        div.className = 'input-container col-12';
+        div.innerHTML = `<i class="fas fa-edit"></i><input type="text" class="form-control text-light" placeholder="Option ${i + 1}">`;
+        inputFields.appendChild(div);
+    }
 }

@@ -1,4 +1,5 @@
 
+// Example Room Class
 class Room {
     constructor({ title, subtitle, description, imgUrl, team1, team2, link, ownerId }) {
         this.title = title;
@@ -13,98 +14,7 @@ class Room {
     }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const createRoomButton = document.querySelector('button[type="submit"]');
-    if (createRoomButton) {
-        createRoomButton.addEventListener('click', submitRoom);
-    }
-});
-
-async function submitRoom(event) {
-    event.preventDefault();
-
-    const title = document.querySelector('input[placeholder="Title"]').value;
-    const subtitle = document.querySelector('input[placeholder="Subtitle"]').value;
-    const description = document.querySelector('input[placeholder="Description"]').value;
-    const imgUrl = document.querySelector('input[placeholder="Event picture"]').value;
-    const teamCards = document.querySelectorAll('.team-card');
-    const teams = Array.from(teamCards).map(card => {
-        return {
-            name: card.querySelector('h3').innerText,
-            imgUrl: card.querySelector('img').src
-        };
-    });
-
-    if (teams.length < 2) {
-        alert('You need to add at least two teams.');
-        return;
-    }
-
-    const roomData = new Room({
-        title,
-        subtitle,
-        description,
-        imgUrl,
-        team1: teams[0],
-        team2: teams[1],
-        link: "", // sha256. no caso, será o proprio id/key
-        ownerId: JSON.parse(localStorage.getItem('currentUser')).id,
-    });
-
-    try {
-        const key = await saveRoom(roomData);
-        roomData.link = key;
-        // Optionally update the room with the generated key
-        await fastUpdateRoom(key, roomData);
-
-        // Reset the form and notify the user
-        // document.getElementById('signin-form').reset();
-        alert('Room created successfully!');
-    } catch (error) {
-        console.error('Error creating room:', error);
-        alert('There was a problem creating the room.');
-    }
-}
-
-async function saveRoom(roomData) {
-    try {
-        const response = await fetch('https://cordial-rivalry-default-rtdb.firebaseio.com/rooms.json', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(roomData),
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const responseData = await response.json();
-        return responseData.name; // Firebase returns the unique key for the new record
-    } catch (error) {
-        console.error('Error saving room:', error);
-        throw error;
-    }
-}
-
-async function fastUpdateRoom(key, roomData) {
-    try {
-        await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/rooms/${key}.json`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(roomData),
-        });
-    } catch (error) {
-        console.error('Error updating room:', error);
-    }
-}
-
-// ROOMS.HTML
-
+// Fetch and Render Rooms
 async function getRooms() {
     try {
         const response = await fetch('https://cordial-rivalry-default-rtdb.firebaseio.com/rooms.json', {
@@ -127,8 +37,8 @@ async function getRooms() {
 }
 
 function renderRoom(roomData, roomId) {
-    const roomCard = `
-        <div class="card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2" style="background-color: rgba(255, 255, 255, 0.1);">
+    const roomCardHTML = `
+        <div class="room-card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2" style="background-color: rgba(255, 255, 255, 0.1);" data-room-id="${roomData.link}">
             <img class="card-img-top mb-0 p-3 img-fluid" src="${roomData.imgUrl}" alt="Card image">
             <div class="card-body">
                 <h3 class="text-truncate">${roomData.title}</h3>
@@ -139,8 +49,16 @@ function renderRoom(roomData, roomId) {
             </div>
         </div>
     `;
-    document.getElementById('roomsList').insertAdjacentHTML('beforeend', roomCard);
+
+    const roomsList = document.getElementById('roomsList');
+    roomsList.insertAdjacentHTML('beforeend', roomCardHTML);
+
+    const roomCard = roomsList.querySelector(`.room-card[data-room-id="${roomData.link}"]`);
+    roomCard.addEventListener('click', () => {
+        window.location.href = `room_details.html?roomId=${roomData.link}`;
+    });
 }
+
 
 async function loadRooms() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -150,14 +68,28 @@ async function loadRooms() {
     }
 
     const roomsData = await getRooms();
+    window.rooms = Object.entries(roomsData).map(([id, room]) => ({ id, ...room }));
 
-    for (const [roomId, roomData] of Object.entries(roomsData)) {
-        if (roomData.ownerId === currentUser.id || (roomData.participants && roomData.participants.includes(currentUser.id))) {
-            renderRoom(roomData, roomId);
-        }
-    }
+    renderRooms(window.rooms);
+}
+
+function renderRooms(rooms) {
+    document.getElementById('roomsList').innerHTML = '';
+    rooms.forEach(room => renderRoom(room, room.id));
+}
+
+// Filter Rooms
+function filterRooms(query) {
+    const filteredRooms = window.rooms.filter(room => room.title.toLowerCase().includes(query.toLowerCase()));
+    renderRooms(filteredRooms);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('roomsList') ? loadRooms() : '';    
+    loadRooms();
+
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value;
+        filterRooms(query);
+    });
 });
