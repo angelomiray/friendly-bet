@@ -22,16 +22,16 @@
 <body>
     <div class="background-container">
         <div class="background-image"></div>
-    </div>    
+    </div>
     <div id="alert-container"></div>
     <div class="content container-fluid">
-        <div id="container" class="row">            
+        <div id="container" class="row">
             <div id="account-options" class="col-xl-2 col-0">
 
             </div>
 
             <div id="dashboard" class="col-xl-9 col-lg-12 col-12">
-                
+
                 <div id="intro"
                     class="d-flex flex-column flex-md-row align-items-center justify-content-between mt-5 mb-5">
                     <div id="right-intro" class="order-md-2 d-none d-md-flex">
@@ -59,13 +59,13 @@
                                     <a data-toggle="modal" href="#" id="copyRoomCodeLink">
                                         <li class="dropdown-item">Copy room code</li>
                                     </a>
-                                    
+
                                     <a data-toggle="modal" href="#newBetModal">
                                         <li class="dropdown-item">Create a new bet</li>
                                     </a>
                                     <a href="../html/updateRoom.html">
                                         <li class="dropdown-item">Configurate Room</li>
-                                    </a>                                    
+                                    </a>
                                     <a data-toggle="modal" href="#">
                                         <li class="dropdown-item">Close room</li>
                                     </a>
@@ -90,172 +90,110 @@
                         <p style="text-align: center;">Peso meio-pesado - Luta Principal</p>
 
                     </div>
-                    <div id="betList">
-                        <div class="card mb-2">
-                            <div
-                                class="card-header d-flex justify-content-between align-items-center flex-wrap p-0 p-lg-4">
-                                <div class="d-flex align-items-center mb-lg-0 mb-4 col-lg-5 col-sm-12">
-                                    <img class="img-fluid"
-                                        src="https://voxnews.com.br/wp-content/uploads/2019/01/ufc-logo-750x394.jpg"
-                                        alt="Room picture">
-                                    <div class="ml-3">
-                                        <h4>Fight winner</h4>
-                                        <h5 style="color: grey;">Created May 15</h5>
-                                    </div>
-                                </div>
+                    <div id="betsList">
 
-                                <!-- STRAIGHT BET, MULTIPLE BET OR SYSTEM BET -->
-                                <div class="bet-info col-lg-7 col-sm-12 d-flex flex-row">
-                                    <h5 class="col-lg-3">Straight Bet</h5>
-                                    <h5 class="col-lg-3" style="color: greenyellow"> OPEN </h5>
-                                    <a class="card-link col-lg-1" data-toggle="modal" href="#betModal">
-                                        <i class="fas fa-dollar-sign"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        <div class="modal fade" id="betModal" tabindex="-1" role="dialog"
-                            aria-labelledby="betModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content custom-modal-content">
-                                    <div class="modal-header custom-modal-header">
-                                        <h5 class="modal-title" id="betModalLabel">Place Your Bet</h5>
-                                        <button type="button" class="close custom-close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body col-12">
-                                        <form class="col-12">
-                                            <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" value="Alex Pereira"
-                                                    id="alexPereira">
-                                                <label class="form-check-label text-light" for="alexPereira">
-                                                    Alex Pereira
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="Jamahal Hill"
-                                                    id="jamahalHill">
-                                                <label class="form-check-label text-light" for="jamahalHill">
-                                                    Jamahal Hill
-                                                </label>
-                                            </div>
-                                            <div class="form-row align-items-center mt-3 col-12">
-                                                <div class="col-lg-9 col-sm-12">
-                                                    <input type="text" class="form-control mb-2" id="amount"
-                                                        placeholder="Amount">
-                                                </div>
-                                                <div class="col-lg-3 col-sm-12">
-                                                    <button type="submit"
-                                                        class="btn btn-success mb-2 col-12">Bet</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="membersModal" tabindex="-1" role="dialog"
-                            aria-labelledby="membersModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content custom-modal-content">
-                                    <div class="modal-header custom-modal-header">
-                                        <h5 class="modal-title" id="membersModalLabel">Members List</h5>
-                                        <button type="button" class="close custom-close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body col-12 d-flex flex-column">
-                                        <div class="member d-flex col-12 align-items-center mb-3">
-                                            <div class="member-img col-lg-2 p-3"
-                                                style="background-color: rgb(255, 93, 44);">
-                                                <h4 class="m-auto text-center">FJ</h4>
-                                            </div>
-                                            <div class="member-info ml-3 col-8">
-                                                <h4>Flap Jack</h4>
-                                                <h5> <i class="fas fa-crown mr-2"></i> Owner</h5>
-                                            </div>
-                                        </div>
-
-                                        <div class="member d-flex col-12 align-items-center mb-3">
-                                            <div class="member-img col-lg-2 p-3"
-                                                style="background-color: rgb(20, 15, 120);">
-                                                <h4 class="m-auto text-center">CC</h4>
-                                            </div>
-                                            <div class="member-info ml-3 col-8">
-                                                <h4>Cora Coraline</h4>
-                                                <h5> <i class="fas fa-user mr-2"></i> Member</h5>
-                                            </div>
-                                        </div>
-
-                                        <div class="member d-flex col-12 align-items-center mb-3">
-                                            <div class="member-img col-lg-2 p-3"
-                                                style="background-color: rgb(44, 220, 120);">
-                                                <h4 class="m-auto text-center">BY</h4>
-                                            </div>
-                                            <div class="member-info ml-3 col-8">
-                                                <h4>Billy</h4>
-                                                <h5> <i class="fas fa-user mr-2"></i> Member</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal fade" id="newBetModal" tabindex="-1" role="dialog"
-                            aria-labelledby="newBetModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content custom-modal-content">
-                                    <div class="modal-header custom-modal-header">
-                                        <h5 class="modal-title" id="newBetModalLabel">New Bet Form</h5>
-                                        <button type="button" class="close custom-close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body col-12 d-flex flex-column">
-                                        <form>
-                                            <div class="input-container col-12">
-                                                <i class="fas fa-heading"></i>
-                                                <input type="text" class="form-control" placeholder="Bet Title">
-                                            </div>
-                                            <div class="input-container col-12">
-                                                <select class="form-control bg-dark text-light" id="betType"
-                                                    onchange="showInputs()">
-                                                    <option value="">Select Bet Type</option>
-                                                    <option value="straight">Straight Bet</option>
-                                                    <option value="multiple">Multiple Bet</option>
-                                                    <option value="system">System Bet</option>
-                                                </select>
-                                            </div>
-                                            <div id="inputFields" class="col-12"></div>
-
-                                            <button
-                                                class="d-flex btn btn-danger m-auto justify-content-center py-3 col-lg-5 col-sm-12">
-                                                Create </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
+
+                    <div class="modal fade" id="membersModal" tabindex="-1" role="dialog"
+                        aria-labelledby="membersModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content custom-modal-content">
+                                <div class="modal-header custom-modal-header">
+                                    <h5 class="modal-title" id="membersModalLabel">Members List</h5>
+                                    <button type="button" class="close custom-close" data-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body col-12 d-flex flex-column">
+                                    <div class="member d-flex col-12 align-items-center mb-3">
+                                        <div class="member-img col-lg-2 p-3"
+                                            style="background-color: rgb(255, 93, 44);">
+                                            <h4 class="m-auto text-center">FJ</h4>
+                                        </div>
+                                        <div class="member-info ml-3 col-8">
+                                            <h4>Flap Jack</h4>
+                                            <h5> <i class="fas fa-crown mr-2"></i> Owner</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="member d-flex col-12 align-items-center mb-3">
+                                        <div class="member-img col-lg-2 p-3"
+                                            style="background-color: rgb(20, 15, 120);">
+                                            <h4 class="m-auto text-center">CC</h4>
+                                        </div>
+                                        <div class="member-info ml-3 col-8">
+                                            <h4>Cora Coraline</h4>
+                                            <h5> <i class="fas fa-user mr-2"></i> Member</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="member d-flex col-12 align-items-center mb-3">
+                                        <div class="member-img col-lg-2 p-3"
+                                            style="background-color: rgb(44, 220, 120);">
+                                            <h4 class="m-auto text-center">BY</h4>
+                                        </div>
+                                        <div class="member-info ml-3 col-8">
+                                            <h4>Billy</h4>
+                                            <h5> <i class="fas fa-user mr-2"></i> Member</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="newBetModal" tabindex="-1" role="dialog"
+                        aria-labelledby="newBetModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content custom-modal-content">
+                                <div class="modal-header custom-modal-header">
+                                    <h5 class="modal-title" id="newBetModalLabel">New Bet Form</h5>
+                                    <button type="button" class="close custom-close" data-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body col-12 d-flex flex-column">
+                                    <form id="betForm">
+                                        <div class="input-container col-12">
+                                            <i class="fas fa-heading"></i>
+                                            <input type="text" class="form-control" id="betTitle"
+                                                placeholder="Bet Title" required>
+                                        </div>
+                                        <div class="input-container col-12">
+                                            <select class="form-control bg-dark text-light" id="betType"
+                                                onchange="showInputs()" required>
+                                                <option value="">Select Bet Type</option>
+                                                <option value="straight">Straight Bet</option>
+                                                <option value="multiple">Multiple Bet</option>
+                                                <option value="system">System Bet</option>
+                                            </select>
+                                        </div>
+                                        <div id="inputFields" class="col-12"></div>
+                                        <button type="submit"
+                                            class="d-flex btn btn-danger m-auto justify-content-center py-3 col-lg-5 col-sm-12">
+                                            Create
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="../js/components.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="../js/room_details.js"></script>
     <script src="../js/rooms.js"></script>
     <script src="../js/utils.js"></script>
+    <script src="../js/bets.js"></script>
 
 </body>
 

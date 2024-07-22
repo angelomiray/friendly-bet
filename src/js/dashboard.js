@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function renderRoomList(roomData, roomId) {
     return `
-        <li class="mb-3 mr-sm-3" data-room-id="${roomId}" onclick="selectRoom('${roomId}')">
+        <li class="mb-3 mr-sm-3" style="cursor: pointer;" data-room-id="${roomId}" onclick="selectRoom('${roomId}')">
             <img src="${roomData.imgUrl}" alt="">
             <div class="bet-info">
                 <span>${roomData.title}</span>

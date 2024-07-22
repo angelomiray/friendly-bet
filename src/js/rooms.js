@@ -36,6 +36,28 @@ async function getRooms() {
     }
 }
 
+async function getRoomById(roomId) {
+    try {
+        const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/rooms/${roomId}.json`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Resposta de rede não foi ok');
+        }
+
+        const userData = await response.json();
+        return userData;
+
+    } catch (error) {
+        console.error('Erro ao obter usuário:', error);
+        throw error;
+    }
+}
+
 function renderRoom(roomData, roomId) {
     const roomCardHTML = `
         <div class="room-card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2" style="background-color: rgba(255, 255, 255, 0.1);" data-room-id="${roomData.link}">
