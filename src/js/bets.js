@@ -1,5 +1,6 @@
 class Bet {
-    constructor({ title, owner, roomId, type, imgUrl, option1, option2, option3, option4, option5 }) {
+    constructor({ betId, title, owner, roomId, type, imgUrl, option1, option2, option3, option4, option5 }) {
+        this.betId = betId;
         this.title = title;
         this.owner = owner;
         this.roomId = roomId;
@@ -11,14 +12,21 @@ class Bet {
         this.option3 = option3;
         this.option4 = option4;
         this.option5 = option5;
-        //lembrar da entidade APOSTA, com o apostador, valor, etc
     }
 }
-
 
 document.getElementById('betForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
+    const betId = this.getAttribute('data-bet-id');
+    if (betId) {
+        await handleUpdateBet(betId);
+    } else {
+        await handleCreateBet();
+    }
+});
+
+async function handleCreateBet() {
     const title = document.getElementById('betTitle').value;
     const type = document.getElementById('betType').value;
     const options = Array.from(document.querySelectorAll('#inputFields input')).map(input => input.value);
@@ -26,17 +34,16 @@ document.getElementById('betForm').addEventListener('submit', async function (ev
     const storedUser = localStorage.getItem('currentUser');
     const owner = storedUser ? JSON.parse(storedUser).id : null;
 
-    // Obter a sala de forma assíncrona
     try {
         const room = await getRoomById(roomId);
         const imgUrl = room ? room.imgUrl : null;
 
         const newBet = new Bet({
-            title,
-            owner,
-            roomId,
-            type,
-            imgUrl,
+            title: title,
+            owner: owner,
+            roomId: roomId,
+            type: type,
+            imgUrl: imgUrl,
             option1: options[0] || "",
             option2: options[1] || "",
             option3: options[2] || "",
@@ -44,25 +51,41 @@ document.getElementById('betForm').addEventListener('submit', async function (ev
             option5: options[4] || ""
         });
 
-        await saveBet(newBet);
+        const key = await saveBet(newBet);
+        newBet.betId = key;
+        console.log('aqui: ' + key);
+        await updateBetInDatabase(key, newBet);
 
-        // Fechar o modal após a criação da aposta
         $('#newBetModal').modal('hide');
-
-        // Redirecionar para a página com o roomId
         window.location.href = `room_details.html?roomId=${roomId}`;
     } catch (error) {
         console.error('Erro ao obter a sala:', error);
-        // Lidar com o erro de acordo com a necessidade
     }
-});
+}
 
+async function handleUpdateBet(betId) {
+    const title = document.getElementById('betTitle').value;
+    const type = document.getElementById('betType').value;
+    const options = Array.from(document.querySelectorAll('#inputFields input')).map(input => input.value);
 
-// function getRoomIdFromUrl() {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     return urlParams.get('roomId');
-// }
+    const updatedBet = {
+        title,
+        type,
+        option1: options[0] || "",
+        option2: options[1] || "",
+        option3: options[2] || "",
+        option4: options[3] || "",
+        option5: options[4] || ""
+    };
 
+    try {
+        await updateBetInDatabase(betId, updatedBet);
+        $('#newBetModal').modal('hide');
+        loadRoomBets();
+    } catch (error) {
+        console.error('Erro ao atualizar aposta:', error);
+    }
+}
 
 async function saveBet(betData) {
     try {
@@ -79,16 +102,34 @@ async function saveBet(betData) {
         }
 
         const responseData = await response.json();
-        return responseData.name; // Retorna a chave gerada pelo Firebase
-
+        return responseData.name;
     } catch (error) {
         console.error('Erro ao salvar aposta:', error);
-        throw error; // Re-lança o erro para ser capturado na função submitUser
+        throw error;
     }
 }
 
+async function updateBetInDatabase(betId, updatedBet) {
+    try {
+        const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/bets/${betId}.json`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedBet),
+        });
 
-// Fetch and Render BETS
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Erro ao atualizar aposta:', error);
+        throw error;
+    }
+}
+
 async function getBets() {
     try {
         const response = await fetch('https://cordial-rivalry-default-rtdb.firebaseio.com/bets.json', {
@@ -108,6 +149,7 @@ async function getBets() {
         throw error;
     }
 }
+
 
 function renderBet(betData) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -147,11 +189,8 @@ function renderBet(betData) {
 
     const betsList = document.getElementById('betsList');
     betsList.insertAdjacentHTML('beforeend', betHTML);
-
-    // Adiciona o modal dinâmico
     createBetModal(betData);
 }
-
 
 function createBetModal(betData) {
     const options = [betData.option1, betData.option2, betData.option3, betData.option4, betData.option5].filter(option => option);
@@ -196,8 +235,7 @@ function createBetModal(betData) {
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 }
 
-
-async function loadBets() {
+async function loadRoomBets() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (!currentUser || !currentUser.id) {
         console.error('No current user found in localStorage');
@@ -208,7 +246,10 @@ async function loadBets() {
     console.log(betsData);
     window.bets = Object.entries(betsData).map(([id, bet]) => ({ id, ...bet }));
 
-    renderBets(window.bets);
+    const roomId = getRoomIdFromUrl(); // Obtém o roomId da URL
+    const roomBets = window.bets.filter(bet => bet.roomId === roomId);
+
+    renderBets(roomBets);
 }
 
 function renderBets(bets) {
@@ -216,7 +257,6 @@ function renderBets(bets) {
     betsList.innerHTML = '';
     bets.forEach(bet => renderBet(bet));
 }
-
 
 async function deleteBet(betId) {
     if (confirm('Tem certeza de que deseja deletar esta aposta?')) {
@@ -232,7 +272,7 @@ async function deleteBet(betId) {
                 throw new Error('Network response was not ok');
             }
 
-            showAlert('sucess', 'Aposta deletada com sucesso');
+            showAlert('success', 'Aposta deletada com sucesso');
             window.location.reload();
         } catch (error) {
             console.error('Erro ao deletar aposta:', error);
@@ -240,22 +280,18 @@ async function deleteBet(betId) {
     }
 }
 
-// Função para abrir o modal de atualização com os dados da aposta
 function updateBet(betId) {
-    // Encontre a aposta com base no betId
-    const bet = window.bets.find(b => b.id === betId);
-    
+    const bet = window.bets.find(b => b.betId === betId);
+
     if (!bet) {
         console.error('Bet not found:', betId);
         return;
     }
 
-    // Preenche os campos do formulário com os dados da aposta
     document.getElementById('betTitle').value = bet.title;
     document.getElementById('betType').value = bet.type;
     const options = [bet.option1, bet.option2, bet.option3, bet.option4, bet.option5];
 
-    // Limpe os campos de opções existentes
     const inputFields = document.getElementById('inputFields');
     inputFields.innerHTML = '';
 
@@ -271,70 +307,10 @@ function updateBet(betId) {
         }
     });
 
-    // Atualize o ID do formulário para incluir o betId
     document.getElementById('betForm').setAttribute('data-bet-id', betId);
-
-    // Abra o modal
     $('#newBetModal').modal('show');
 }
 
-// Função para atualizar a aposta
-document.getElementById('betForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const betId = this.getAttribute('data-bet-id');
-    const title = document.getElementById('betTitle').value;
-    const type = document.getElementById('betType').value;
-    const options = Array.from(document.querySelectorAll('#inputFields input')).map(input => input.value);
-
-    const updatedBet = {
-        title,
-        type,
-        option1: options[0] || "",
-        option2: options[1] || "",
-        option3: options[2] || "",
-        option4: options[3] || "",
-        option5: options[4] || ""
-    };
-
-    try {
-        await updateBetInDatabase(betId, updatedBet);
-
-        // Fechar o modal após a atualização da aposta
-        $('#newBetModal').modal('hide');
-
-        // Recarregar a lista de apostas
-        loadBets();
-    } catch (error) {
-        console.error('Erro ao atualizar aposta:', error);
-    }
-});
-
-
-async function updateBetInDatabase(betId, updatedBet) {
-    try {
-        const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/bets/${betId}.json`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updatedBet),
-        });
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error('Erro ao atualizar aposta:', error);
-        throw error; // Re-lança o erro para ser capturado na função submitUser
-    }
-}
-
-
-
 document.addEventListener('DOMContentLoaded', async () => {
-
-    loadBets();
+    loadRoomBets();
 });

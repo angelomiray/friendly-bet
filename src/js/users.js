@@ -115,7 +115,7 @@ async function submitUser(event) {
         // Adiciona a chave ao objeto userData
         userData.id = key;
         // Atualiza o usuário com a chave como parte dos dados
-        await fastUpdate(key, userData);
+        await fastUpdateUser(key, userData);
 
         createUserForm.reset();
         showAlert('success', 'Perfil criado com sucesso!');
@@ -148,7 +148,7 @@ async function saveUser(userData) {
 }
 
 // Função para atualizar o usuário com a chave gerada
-async function fastUpdate(key, userData) {
+async function fastUpdateUser(key, userData) {
     try {
         const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/users/${key}.json`, {
             method: 'PUT',
