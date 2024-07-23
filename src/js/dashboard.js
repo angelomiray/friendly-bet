@@ -87,6 +87,12 @@ async function loadRoomsInDashboard() {
     if (count > 0) {
         selectRoom(Object.keys(roomsData)[0]);
     }
+
+    if (count == 0) {
+        
+    } else {
+        
+    }
 }
 
 function selectRoom(roomId) {

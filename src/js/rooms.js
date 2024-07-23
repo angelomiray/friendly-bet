@@ -60,13 +60,15 @@ async function getRoomById(roomId) {
 
 function renderRoom(roomData, roomId) {
     const roomCardHTML = `
-        <div class="room-card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2" style="background-color: rgba(255, 255, 255, 0.1);" data-room-id="${roomData.link}">
-            <img class="card-img-top mb-0 p-3 img-fluid" src="${roomData.imgUrl}" alt="Card image">
+        <div class="room-card col-xl-3 col-lg-4 col-sm-5 p-0 mr-2 mb-2" data-room-id="${roomData.link}">
+            <div class="card-img-container">
+                <img class="card-img-top" src="${roomData.imgUrl}" alt="Card image">
+            </div>
             <div class="card-body">
                 <h3 class="text-truncate">${roomData.title}</h3>
                 <h4 class="text-truncate" style="color: wheat;">${roomData.subtitle}</h4>
-                <div style="color: grey;">
-                    <i class="far fa-calendar-alt mr-2" style="color: grey;"></i> ${'May 15'}
+                <div class="card-date">
+                    <i class="far fa-calendar-alt mr-2"></i> ${'May 15'}
                 </div>
             </div>
         </div>
@@ -80,6 +82,7 @@ function renderRoom(roomData, roomId) {
         window.location.href = `room_details.html?roomId=${roomData.link}`;
     });
 }
+
 
 
 async function loadRooms() {

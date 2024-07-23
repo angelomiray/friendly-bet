@@ -58,6 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const closeIcon = document.querySelector('.info[data-field="delete"] button');
+    
+    closeIcon.addEventListener('click', async function() {
+        const confirmation = confirm("Are you sure you want to close this room? This action cannot be undone and the prizes will be sent to the winners.");
+        if (confirmation) {
+            const roomId = JSON.parse(localStorage.getItem('roomData')).link;
+            try {
+                await deleteRoom(roomId);
+                showAlert('sucess', 'Room has been closed and deleted successfully.');
+                // Redirect or update UI after deletion
+                window.location.href = '../html/bets_dashboard.html'; // Update this to the appropriate URL
+            } catch (error) {
+                console.error('Error deleting room:', error);
+                alert('danger', 'An error occurred while deleting the room. Please try again.');
+            }
+        }
+    });
+});
+
 
 async function updateRoom(roomId, roomData) {    
 
@@ -82,6 +102,25 @@ async function updateRoom(roomId, roomData) {
 
     } catch (error) {
         console.error('Error updating user:', error);
+        throw error;
+    }
+}
+
+
+async function deleteRoom(roomId) {
+    try {
+        const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/rooms/${roomId}.json`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+    } catch (error) {
+        console.error('Error deleting room:', error);
         throw error;
     }
 }

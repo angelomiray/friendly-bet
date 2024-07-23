@@ -91,23 +91,20 @@ document.getElementById('createRoomButton').addEventListener('click', async (eve
     const team1 = { name: team1Name, imgUrl: team1ImgUrl };
     const team2 = { name: team2Name, imgUrl: team2ImgUrl };
 
-    // Gera um link SHA-256 para a sala
-    const link = await sha256(title + subtitle + description);
-
     // Obtém o ID do proprietário do local storage
     const currentUserString = localStorage.getItem('currentUser');
     const currentUser = JSON.parse(currentUserString);
     const ownerId = currentUser.id;
 
     // Cria uma nova instância da sala
-    const newRoom = new Room({ title, subtitle, description, imgUrl, team1, team2, link, ownerId });
+    const newRoom = new Room({ title: title, subtitle: subtitle, description: description, imgUrl: imgUrl, team1: team1, team2: team2, ownerId: ownerId });
 
     try {
         // Salva a sala no Firebase
-        const roomId = await saveRoom(newRoom);
-        newRoom.link = roomId;
-        fastUpdate(roomId, newRoom);
-        console.log('Sala criada com sucesso! ID:', roomId);
+        const key = await saveRoom(newRoom);
+        newRoom.link = key;
+        await fastUpdate(key, newRoom);
+        window.location.href = '../html/bets_dashboard.html';
     } catch (error) {
         console.error('Erro ao criar a sala:', error);
     }
@@ -141,7 +138,7 @@ async function saveRoom(roomData) {
 async function fastUpdate(key, roomData) {
     try {
         const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/rooms/${key}.json`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },

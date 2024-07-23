@@ -156,7 +156,7 @@ function renderBet(betData) {
     const isOwner = currentUser && currentUser.id === betData.owner;
 
     const betHTML = `
-        <div class="card mb-2">
+        <div class="card mb-2 p-1">
             <div class="card-header d-flex justify-content-between align-items-center flex-wrap p-0 p-lg-4">
                 <div class="d-flex align-items-center mb-lg-0 mb-4 col-lg-5 col-sm-12">
                     <img class="img-fluid" src="${betData.imgUrl}" alt="Room picture">

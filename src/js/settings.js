@@ -48,3 +48,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButton = document.getElementById('deleteAccountButton');
+
+    deleteButton.addEventListener('click', async function() {
+        const confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+        if (confirmation) {
+            const userId = getCurrentUserId();
+            try {
+                await deleteUserAccount(userId);
+                localStorage.removeItem('currentUser');
+                showAlert('sucess', 'Your account has been deleted successfully.');
+                
+                window.location.href = '../html/index.html'; // Update this to the appropriate URL
+            } catch (error) {
+                console.error('Error deleting account:', error);
+                alert('danger', 'An error occurred while deleting your account. Please try again.');
+            }
+        }
+    });
+});
+
+function getCurrentUserId() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    return currentUser ? currentUser.id : null;
+}
+
+async function deleteUserAccount(userId) {
+    if (!userId) {
+        throw new Error('User ID is required to delete account');
+    }
+    
+    try {
+        const response = await fetch(`https://cordial-rivalry-default-rtdb.firebaseio.com/users/${userId}.json`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        
+        // Optionally, delete authentication credentials
+        // await firebase.auth().currentUser.delete();
+        
+    } catch (error) {
+        console.error('Error deleting account:', error);
+        throw error;
+    }
+}
